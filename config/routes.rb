@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   get '/calendar' => 'calendar#index', as: :calendar
 
+  get '/club' => 'club#index', as: :club
+
   get '/files/*path' => 'files#index', as: :files
   get '/files' => 'files#index', as: :base_files
 
