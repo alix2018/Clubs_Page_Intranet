@@ -9,15 +9,12 @@
         %button.btn.btn-primary.btn-block Tous les clubs
       %a{:href => "http://localhost:3000/club/creerclub"}
         %button.btn.btn-primary.btn-block Créer un club
-      
- 
   .col-md-8
     .panel.panel-primary
       .panel-heading
-        %h3.panel-title La page des clubs
+        %h3.panel-title Mes clubs
       .panel-body
-        %h1{:align => "center"} Nouveautés des clubs
-
+        %h1{:align => "center"} Choisissez un club
 
 :javascript
   window.current_user_promo = #{current_user.promo}

@@ -24,6 +24,11 @@ Rails.application.routes.draw do
   get '/calendar' => 'calendar#index', as: :calendar
 
   get '/club' => 'club#index', as: :club
+  get '/club/mesclubs' => 'club#mesclubs', as: :mesclubs
+  get '/club/touslesclubs' => 'club#touslesclubs', as: :touslesclubs
+  get '/club/creerclub' => 'club#creerclub', as: :creerclub
+
+
 
   get '/files/*path' => 'files#index', as: :files
   get '/files' => 'files#index', as: :base_files
