@@ -1,0 +1,51 @@
+.row
+  .col-md-2
+    %br
+      %a{:href => "http://localhost:3000/club"}
+        %button.btn.btn-primary.btn-block Accueil
+      %a{:href => "http://localhost:3000/club/theclubs"}
+        %button.btn.btn-primary.btn-block Les clubs
+      %a{:href => "http://localhost:3000/club/subscribe"}
+        %button.btn.btn-primary.btn-block S'inscrire
+  .col-md-8
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title S'inscrire
+      .panel-body
+        %center
+          .hero-unit
+            %h1 Participez à la vie associative !
+        %br
+          .row
+            .col-md-6
+              .thumbnail
+                .hovereffect
+                  %img.img-responsive{:alt => "", :src =>  asset_path("club1.jpg")}
+                    .overlay
+                      %h2 Pour rejoindre un club
+                      %a.info{:href => "#"} Cliquez ici
+                .caption{:style => "margin-top:70%"}
+                  %center
+                    %h3 Rejoindre un club
+            .col-md-6
+              .thumbnail
+                .hovereffect
+                  %img.img-responsive{:alt => "", :src =>  asset_path("club2.jpg")}
+                    .overlay
+                      %h2 Pour créer un club
+                      %a.info{:href => "#"} Cliquez ici
+                .caption{:style => "margin-top:70%"}
+                  %center
+                    %h3 Créer un club
+          %br
+            %p
+              Un club vous intéresse? Remplissez vite le
+              %a{:href => "http://localhost:3000/club/subscribe"} formulaire. 
+              %br 
+                %br
+                  Vous avez une idée de club et vous vous la concrétiser? 
+                  Remplissez tout de suite le
+                  %a{:href => "http://localhost:3000/club/subscribe"} formulaire.
+
+:javascript
+  window.current_user_promo = #{current_user.promo}

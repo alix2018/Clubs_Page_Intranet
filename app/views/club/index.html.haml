@@ -1,48 +1,79 @@
 .row
   .col-md-2
-    .panel-body
+    %br
       %a{:href => "http://localhost:3000/club"}
         %button.btn.btn-primary.btn-block Accueil
-      %a{:href => "http://localhost:3000/club/mesclubs"}
-        %button.btn.btn-primary.btn-block Mes clubs
-      %a{:href => "http://localhost:3000/club/touslesclubs"}
-        %button.btn.btn-primary.btn-block Tous les clubs
-      %a{:href => "http://localhost:3000/club/creerclub"}
-        %button.btn.btn-primary.btn-block Créer un club
-      
- 
+      %a{:href => "http://localhost:3000/club/theclubs"}
+        %button.btn.btn-primary.btn-block Les clubs
+      %a{:href => "http://localhost:3000/club/subscribe"}
+        %button.btn.btn-primary.btn-block S'inscrire
   .col-md-8
     .panel.panel-primary
       .panel-heading
-        %h3.panel-title La page des clubs
+        %h3.panel-title Nouveautés des clubs
       .panel-body
-        %h1{:align => "center"} Nouveautés des clubs
         .panel
           .panel-body
             .row
-              %br
-                .col-md-2.col-sm-3.text-center
-                  %a.story-img{:href => "#"}
-                    %img.img-responsive.img-circle{:src => "//placehold.it/90x90&text=90x90", :style => "width:90px;height:90px"}/
-                .col-md-10.col-sm-9
-                  %h3 Article 1
-                  .row
-                    .col-xs-12
-                      %p
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                        Aliquam in felis sit amet augue.
-                      %p.lead
-                        %button.btn.btn-default Read More
-                      %ul.list-inline
-                        %li      
-                          %a{:href => "#"} Il y a 2 jours
-                        %li
-                          %a{:href => "#"}
-                            %i.glyphicon.glyphicon-comment
-                            4 Commentaires
-
+              .col-md-2.col-sm-3.text-center
+                %a.story-img{:href => "#"}
+                  %img.img-responsive.img-circle{:src => "//placehold.it/90x90&text=90x90", :style => "width:90px;height:90px;margin-top:40%", :title => "Voir le profil"}/
+              .col-md-10.col-sm-9
+                %h3 Article 1
+                .row
+                  .col-xs-12
+                    %p
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                      Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                      dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                      Aliquam in felis sit amet augue.
+                    %p.lead
+                      %button.btn.btn-default Lire la suite
+                    %ul.list-inline
+                      %li      
+                        %a{:href => "#"} Il y a 2 jours
+                      %li
+                        %a{:href => "#"} 4 Commentaires
+        .panel
+          .panel-body
+            .row
+              .col-md-2.col-sm-3.text-center
+                %a.story-img{:href => "#"}
+                  %img.img-responsive.img-circle{:src => "//placehold.it/90x90&text=90x90", :style => "width:90px;height:90px;margin-top:40%", :title => "Voir le profil"}/
+              .col-md-10.col-sm-9
+                %h3 Article 2
+                .row
+                  .col-xs-12
+                    %p
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                      Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                      dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                      Aliquam in felis sit amet augue.
+                    %p.lead
+                      %button.btn.btn-default Lire la suite
+                    %ul.list-inline
+                      %li      
+                        %a{:href => "#"} Il y a 2 jours
+                      %li
+                        %a{:href => "#"} 4 Commentaires                        
+      %center
+        %ul.pagination.pagination-alt
+          %li.disabled
+            %a{:href => "#"}
+              &laquo;
+          %li.active
+            %a{:href => "#"} 1
+          %li
+            %a{:href => "#"} 2
+          %li
+            %a{:href => "#"} 3
+          %li
+            %a{:href => "#"} 4
+          %li
+            %a{:href => "#"} 5
+          %li
+            %a{:href => "#"}
+              &raquo;
 
 :javascript
   window.current_user_promo = #{current_user.promo}

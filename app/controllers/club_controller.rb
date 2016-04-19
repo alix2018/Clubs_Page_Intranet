@@ -4,15 +4,11 @@ class ClubController < ApplicationController
     $cur_prom= current_user.promo
   end
 
-  def mesclubs
+  def lesclubs
     $cur_prom= current_user.promo
   end
 
-   def touslesclubs
-    $cur_prom= current_user.promo
-  end
-
-    def creerclub
+    def subscribe
     $cur_prom= current_user.promo
   end
 

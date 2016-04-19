@@ -16,7 +16,9 @@
           .alert.alert-danger{:role => "alert"}
             Votre profil est incomplet. Merci de le compléter
             = link_to "en cliquant ici.", edit_user_path(current_user)
+      //= render "shared/club"
       = yield
+
 
 - if flash[:notice]
   :javascript
