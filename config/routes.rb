@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get '/calendar' => 'calendar#index', as: :calendar
 
   get '/club' => 'club#index', as: :club
-  get '/club/theclubs' => 'club#theclubs', as: :theclubs
+  get '/club/lesclubs' => 'club#lesclubs', as: :lesclubs
   get '/club/subscribe' => 'club#subscribe', as: :subscribe
 
 
