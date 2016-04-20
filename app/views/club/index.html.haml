@@ -83,6 +83,10 @@
           %li
             %a{:href => "#"}
               &raquo;
+  .row
+    .col-md-offset-11.col-md-1
+      %a#top{:href => "#"}
+        %img.img-responsive#button-top{:alt => "", :src =>  asset_path("arrows.png")}
 
 :javascript
   window.current_user_promo = #{current_user.promo}
