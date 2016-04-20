@@ -15,18 +15,23 @@
         .panel
           .panel-body
             .row
+              .col-md-12
+                %center
+                  %h2 Nouveau sandwich Drinkiit !
+                %img.img-responsive{:src => asset_path("image_article.png"), :style => "width:700px;height:200px"}
+            .row
               .col-md-2.col-sm-3.text-center
                 %a.story-img{:href => "#"}
-                  %img.img-responsive.img-circle{:src => "//placehold.it/90x90&text=90x90", :style => "width:90px;height:90px;margin-top:40%", :title => "Voir le profil"}/
+                  %img.img-responsive.img-circle{:alt => "", :src =>  asset_path("logo_driinkit.jpg"), :style => "width:90px;height:90px;margin-top:40%", :title => "Voir le profil"}/
               .col-md-10.col-sm-9
-                %h3 Article 1
                 .row
                   .col-xs-12
-                    %p
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                      Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                      dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                      Aliquam in felis sit amet augue.
+                    %br
+                      %p
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                        Aliquam in felis sit amet augue.
                     %p.lead
                       %button.btn.btn-default Lire la suite
                     %ul.list-inline
