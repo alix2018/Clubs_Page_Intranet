@@ -15,5 +15,9 @@ class ClubController < ApplicationController
   def rejoindreclub
     @cur_prom= current_user.promo
   end
+  
+  def creerclub
+    @cur_prom= current_user.promo
+  end 
 
 end
