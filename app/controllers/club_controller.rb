@@ -8,7 +8,11 @@ class ClubController < ApplicationController
     @cur_prom= current_user.promo
   end
 
-    def subscribe
+  def subscribe
+    @cur_prom= current_user.promo
+  end
+
+  def rejoindreclub
     @cur_prom= current_user.promo
   end
 

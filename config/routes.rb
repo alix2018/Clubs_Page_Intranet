@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/club' => 'club#index', as: :club
   get '/club/lesclubs' => 'club#lesclubs', as: :lesclubs
   get '/club/subscribe' => 'club#subscribe', as: :subscribe
+  get '/club/rejoindreclub' => 'club#rejoindreclub', as: :rejoindreclub
 
 
 

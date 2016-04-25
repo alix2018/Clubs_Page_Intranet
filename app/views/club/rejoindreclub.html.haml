@@ -1,0 +1,63 @@
+.row
+  .col-md-10.col-md-offset-1
+    .panel.panel-primary
+      .panel-body
+        %ul#myTab.nav.nav-pills.nav-justified
+          %li.active
+            %a{:href => "http://localhost:3000/club"}
+              %i.fa.fa-newspaper-o{"aria-hidden" => "true"}
+              \&nbsp; News des clubs
+          %li
+            %a{:href => "http://localhost:3000/club/lesclubs"}
+              %i.fa.fa-users{"aria-hidden" => "true"}
+              \&nbsp; Les Clubs
+          %li
+            %a{:href => "http://localhost:3000/club/subscribe"}
+              %i.fa.fa-list{"aria-hidden" => "true"}
+              \&nbsp; S'inscrire
+        #myTabContent.tab-content
+          #justifmenu01.tab-pane.fade.active.in
+            %p
+              %br
+        .panel
+          .panel-body
+            %center
+              %h1 Remplissez le formulaire
+            %br
+              %br
+                / Special version of Bootstrap that only affects content wrapped in .bootstrap-iso
+                %link{:href => "https://formden.com/static/cdn/bootstrap-iso.css", :rel => "stylesheet"}/
+                / Inline CSS based on choices in "Settings" tab
+                :css
+                  .bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}/ HTML Form (wrapped in a .bootstrap-iso div)
+                .bootstrap-iso
+                  .container-fluid
+                    .row
+                      .col-md-6.col-sm-6.col-xs-12
+                        %form{:method => "post"}
+                          .form-group
+                            %label.control-label{:for => "Quel club veux tu rejoindre?"}
+                              Quel club veux-tu rejoindre?
+                              %span.asteriskField
+                                *
+                            .icon-addon.addon-md
+                              %select.form-control
+                                %option Nom du club
+                                %option Club1
+                                %option Club2
+                          .form-group  
+                            %label.control-label{:for => "poste"}
+                              A quel poste?
+                            %input#subject.form-control{:name => "poste", :type => "text", :placeholder => "Nom du poste"}/
+                          .form-group
+                            %label.control-label{:for => "message"}
+                              Si tu as quelque chose à rajouter :
+                            %textarea#message.form-control{:cols => "100", :name => "message", :rows => "10", :placeholder => "200 caractères maximum"}
+                          .form-group
+                            %div
+                              %button.btn.btn-primary{:name => "submit", :type => "submit"}
+                                Envoyer la demande au président
+
+
+:javascript
+  window.current_user_promo = #{current_user.promo}
