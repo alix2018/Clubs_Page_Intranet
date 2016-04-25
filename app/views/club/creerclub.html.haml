@@ -3,58 +3,57 @@
     .panel.panel-primary
       .panel-body
         %ul#myTab.nav.nav-pills.nav-justified
-          %li.active
-            %a{:href => "http://localhost:3000/club"}
+          %li
+            %a{:href => "http://localhost:3000/club"} 
               %i.fa.fa-newspaper-o{"aria-hidden" => "true"}
               \&nbsp; News des clubs
           %li
-            %a{:href => "http://localhost:3000/club/lesclubs"}
+            %a{:href => "http://localhost:3000/club/lesclubs"} 
               %i.fa.fa-users{"aria-hidden" => "true"}
               \&nbsp; Les Clubs
-          %li
+          %li.active
             %a{:href => "http://localhost:3000/club/subscribe"}
               %i.fa.fa-list{"aria-hidden" => "true"}
               \&nbsp; S'inscrire
         #myTabContent.tab-content
           #justifmenu01.tab-pane.fade.active.in
             %p
-              %br
-        .panel
-          .panel-body
-            %center
-              %h1 Remplissez le formulaire
+      .panel
+        .panel-body
+          %center
+            %h1 Remplissez le formulaire
+          %br
             %br
-              %br
-                :css
-                  .bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}/ HTML Form (wrapped in a .bootstrap-iso div)
-                .bootstrap-iso
-                  .container-fluid
-                    .row
-                      .col-md-6.col-sm-6.col-xs-12
-                        %form{:method => "post"}
-                          .form-group
-                            %label.control-label{:for => "nom_club"}
-                              Comment veux-tu appeler ton club?
-                              %span.asteriskField
-                                *
-                            %input#subject.form-control{:name => "nom_club", :type => "text", :placeholder => "Nom du club"}/
-                          .form-group  
-                            %label.control-label{:for => "descripton"}
-                              Quel sera le principe de ton club?
-                              %span.asteriskField
-                                *
-                            %textarea#message.form-control{:cols => "150", :name => "description", :rows => "10", :placeholder => "Entre ton texte ici"}
-                          .form-group
-                            %label.control-label{:for => "logo"}
-                              Logo du club :
-                            .input-group
-                              %input#logo.form-control{:name => "logo", :type => "text"}
-                                .input-group-addon
-                                  Charger
-                          .form-group
-                            %div
-                              %button.btn.btn-primary{:name => "submit", :type => "submit"}
-                                Créer mon club
+              :css
+                .bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}/ HTML Form (wrapped in a .bootstrap-iso div)
+              .bootstrap-iso
+                .container-fluid
+                  .row
+                    .col-md-6.col-sm-6.col-xs-12
+                      %form{:method => "post"}
+                        .form-group
+                          %label.control-label{:for => "nom_club"}
+                            Comment veux-tu appeler ton club?
+                            %span.asteriskField
+                              *
+                          %input#subject.form-control{:name => "nom_club", :type => "text", :placeholder => "Nom du club"}/
+                        .form-group  
+                          %label.control-label{:for => "descripton"}
+                            Quel sera le principe de ton club?
+                            %span.asteriskField
+                              *
+                          %textarea#message.form-control{:cols => "150", :name => "description", :rows => "10", :placeholder => "Entre ton texte ici"}
+                        .form-group
+                          %label.control-label{:for => "logo"}
+                            Logo du club :
+                          .input-group
+                            %input#logo.form-control{:name => "logo", :type => "text"}
+                              .input-group-addon
+                                Charger
+                        .form-group
+                          %div
+                            %button.btn.btn-primary{:name => "submit", :type => "submit"}
+                              Créer mon club
 
 
 :javascript

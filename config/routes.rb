@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get '/club/subscribe' => 'club#subscribe', as: :subscribe
   get '/club/rejoindreclub' => 'club#rejoindreclub', as: :rejoindreclub
   get '/club/creerclub' => 'club#creerclub', as: :creerclub
-
+  get '/club/profileclub' => 'club#profileclub', as: :profileclub
 
 
   get '/files/*path' => 'files#index', as: :files
