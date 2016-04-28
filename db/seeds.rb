@@ -36,7 +36,7 @@ c2.website = "ares-ensiie1.eu"
 c2.description = "On fait du sport tout les jours"
 c2.save!
 
-u1.add_club c1
+u1.clubs << c1
 u1.save!
 
 a1 = Article.new

@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 20160428162631) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "clubs_users", id: false, force: :cascade do |t|
+    t.integer "club_id"
+    t.integer "user_id"
+    t.boolean "admin"
+  end
+
+  add_index "clubs_users", ["club_id"], name: "index_clubs_users_on_club_id", using: :btree
+  add_index "clubs_users", ["user_id"], name: "index_clubs_users_on_user_id", using: :btree
+
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.text     "location"
@@ -129,12 +138,6 @@ ActiveRecord::Schema.define(version: 20160428162631) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "users_clubs", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "club_id"
-    t.boolean "admin"
-  end
 
   add_foreign_key "articles", "users"
   add_foreign_key "events", "users"
