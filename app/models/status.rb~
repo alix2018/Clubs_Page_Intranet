@@ -1,0 +1,4 @@
+class Status < ActiveRecord::Base
+	has_belongs_to_many :clubs
+	has_belongs_to_many :users
+end
