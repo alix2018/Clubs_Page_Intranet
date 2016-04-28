@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428130505) do
+ActiveRecord::Schema.define(version: 20160428162631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,10 @@ ActiveRecord::Schema.define(version: 20160428130505) do
     t.boolean  "is_private"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
   create_table "clubs", force: :cascade do |t|
     t.string   "name"
@@ -40,7 +43,10 @@ ActiveRecord::Schema.define(version: 20160428130505) do
     t.boolean  "is_private"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "oauth_access_grants", force: :cascade do |t|
     t.integer  "resource_owner_id", null: false
@@ -85,12 +91,6 @@ ActiveRecord::Schema.define(version: 20160428130505) do
   add_index "oauth_applications", ["owner_id", "owner_type"], name: "index_oauth_applications_on_owner_id_and_owner_type", using: :btree
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true, using: :btree
 
-  create_table "statuses", force: :cascade do |t|
-    t.boolean  "admin"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -130,4 +130,12 @@ ActiveRecord::Schema.define(version: 20160428130505) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "users_clubs", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "club_id"
+    t.boolean "admin"
+  end
+
+  add_foreign_key "articles", "users"
+  add_foreign_key "events", "users"
 end

@@ -14,11 +14,15 @@ class User < ActiveRecord::Base
   },
     default_url: "/unknown_user.png"
 
-	has_many :statuses
-	has_many :clubs, through: :statuses
-
 
   has_attached_file :cv
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+	belongs_to :club
+	def add_club club
+		self.club club
+		self.save
+	end
+
+
 end
