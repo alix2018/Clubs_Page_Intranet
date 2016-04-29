@@ -18,37 +18,37 @@
         #myTabContent.tab-content
           #justifmenu01.tab-pane.fade.active.in
             %p
-      .panel
-        .panel-body
-          %ul.nav.nav-tabs{:role => "tablist"}
-            %li.active{:role => "liste"}
-              %a{"aria-controls" => "my-clubs", "data-toggle" => "tab", :href => "#my-clubs", :role => "tab"}
-                Mes clubs
-            %li{:role => "presentation"}
-              %a{"aria-controls" => "all-clubs", "data-toggle" => "tab", :href => "#all-clubs", :role => "tab"}
-                Tous les clubs
-          .tab-content
-        #my-clubs.active.tab-pane{:role => "tabpanel"}
-          .table-responsive
-            %table.table.table-striped
-              %thead
-                %tr
-                  %th Nom du club
-                  %th Président
-                  %th Email
-              %tbody
-                %tr
-                  %td
-                    Drinkiit
-                  %td
-                    Nicolas
-                  %td drinkiit@gmail.com
-                  %td
-                    %a.btn.btn-sm.btn-default{:href => "/users/84/profile"}
-                      Voir les news
-                  %td
-                    %a.btn.btn-sm.btn-default{:href => "/users/84/profile"}
-                      Profil du club
+        .panel
+          .panel-body
+            %ul.nav.nav-tabs{:role => "tablist"}
+              %li.active{:role => "liste"}
+                %a{"aria-controls" => "my-clubs", "data-toggle" => "tab", :href => "#my-clubs", :role => "tab"}
+                  Mes clubs
+              %li{:role => "presentation"}
+                %a{"aria-controls" => "all-clubs", "data-toggle" => "tab", :href => "#all-clubs", :role => "tab"}
+                  Tous les clubs
+            .tab-content
+          #my-clubs.active.tab-pane{:role => "tabpanel"}
+            .table-responsive
+              %table.table.table-striped
+                %thead
+                  %tr
+                    %th Nom du club
+                    %th Président
+                    %th Email
+                %tbody
+                  %tr
+                    %td
+                      Drinkiit
+                    %td
+                      Nicolas
+                    %td drinkiit@gmail.com
+                    %td
+                      %a.btn.btn-sm.btn-default{:href => "/users/84/profile"}
+                        Voir les news
+                    %td
+                      %a.btn.btn-sm.btn-default{:href => "/users/84/profile"}
+                        Profil du club
 
 
 :javascript
