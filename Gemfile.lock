@@ -48,11 +48,7 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap_form (2.3.0)
     builder (3.2.2)
-<<<<<<< HEAD
-    byebug (8.2.2)
-=======
     byebug (8.2.5)
->>>>>>> develop
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -67,11 +63,7 @@ GEM
     commonjs (0.2.7)
     concurrent-ruby (1.0.1)
     debug_inspector (0.0.2)
-<<<<<<< HEAD
-    devise (3.5.6)
-=======
     devise (4.0.1)
->>>>>>> develop
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.1)
@@ -135,31 +127,17 @@ GEM
       fog-json (~> 1.0)
       fog-xml (~> 0.1)
       ipaddress (~> 0.8)
-<<<<<<< HEAD
-    fog-core (1.37.0)
-=======
     fog-core (1.38.0)
->>>>>>> develop
       builder
       excon (~> 0.49)
       formatador (~> 0.2)
     fog-dynect (0.0.3)
-<<<<<<< HEAD
       fog-core
       fog-json
       fog-xml
     fog-ecloud (0.3.0)
-=======
->>>>>>> develop
-      fog-core
-      fog-json
-      fog-xml
-<<<<<<< HEAD
-=======
-    fog-ecloud (0.3.0)
       fog-core
       fog-xml
->>>>>>> develop
     fog-google (0.1.0)
       fog-core
       fog-json
@@ -169,13 +147,8 @@ GEM
       multi_json (~> 1.10)
     fog-local (0.3.0)
       fog-core (~> 1.27)
-<<<<<<< HEAD
-    fog-openstack (0.1.2)
-      fog-core (>= 1.35)
-=======
     fog-openstack (0.1.4)
       fog-core (>= 1.38)
->>>>>>> develop
       fog-json (>= 1.0)
       fog-xml (>= 0.1)
       ipaddress (>= 0.8)
@@ -221,11 +194,7 @@ GEM
     fog-voxel (0.1.0)
       fog-core
       fog-xml
-<<<<<<< HEAD
-    fog-vsphere (0.6.3)
-=======
     fog-vsphere (0.6.4)
->>>>>>> develop
       fog-core
       rbvmomi (~> 1.8)
     fog-xenserver (0.2.3)
@@ -234,17 +203,10 @@ GEM
     fog-xml (0.1.2)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
-<<<<<<< HEAD
-    font-awesome-rails (4.5.0.1)
-      railties (>= 3.2, < 5.1)
-    formatador (0.2.5)
-    fullcalendar.io-rails (2.6.1)
-=======
     font-awesome-rails (4.6.1.0)
       railties (>= 3.2, < 5.1)
     formatador (0.2.5)
     fullcalendar.io-rails (2.7.0)
->>>>>>> develop
       jquery-rails (>= 3.1.0, < 5.0)
       momentjs-rails (~> 2.11, >= 2.11.0)
     globalid (0.3.6)
@@ -290,15 +252,9 @@ GEM
     mimemagic (0.3.0)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
-<<<<<<< HEAD
-    momentjs-rails (2.11.0)
-      railties (>= 3.1)
-    multi_json (1.11.2)
-=======
     momentjs-rails (2.11.1)
       railties (>= 3.1)
     multi_json (1.11.3)
->>>>>>> develop
     net-ldap (0.14.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -311,11 +267,7 @@ GEM
       mimemagic (= 0.3.0)
     pg (0.18.4)
     phony (2.15.21)
-<<<<<<< HEAD
-    phony_rails (0.13.1)
-=======
     phony_rails (0.14.0)
->>>>>>> develop
       activesupport (>= 3.0)
       phony (~> 2.12)
     proxies (0.2.1)
@@ -370,13 +322,8 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     sexp_processor (4.7.0)
-<<<<<<< HEAD
-    spring (1.6.4)
-    sprockets (3.5.2)
-=======
     spring (1.7.1)
     sprockets (3.6.0)
->>>>>>> develop
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.0.4)

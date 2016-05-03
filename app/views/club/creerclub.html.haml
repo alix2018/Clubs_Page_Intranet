@@ -20,36 +20,37 @@
             %p
       .panel
         .panel-body
-          %center
-            %h1 Remplissez le formulaire
-          %br
-            %br
-              :css
-                .bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}/ HTML Form (wrapped in a .bootstrap-iso div)
-              .bootstrap-iso
-                .container-fluid
-                  .row
-                    .col-md-6.col-sm-6.col-xs-12
-                      %form{:method => "post"}
-                        .form-group
-                          %label.control-label{:for => "nom_club"}
-                            Comment veux-tu appeler ton club?
-                            %span.asteriskField
-                              *
-                          %input#subject.form-control{:name => "nom_club", :type => "text", :placeholder => "Nom du club"}/
-                        .form-group  
-                          %label.control-label{:for => "descripton"}
-                            Quel sera le principe de ton club?
-                            %span.asteriskField
-                              *
-                          %textarea#message.form-control{:cols => "150", :name => "description", :rows => "10", :placeholder => "Entre ton texte ici"}
-                        .form-group
-                          %label.control-label{:for => "logo"}
-                            Logo du club :
-                          .input-group
-                            %input#logo.form-control{:name => "logo", :type => "text"}
-                              .input-group-addon
-                                Charger
+        = bootstrap_form_for(@club, multipart: true) do |f|
+          %h3 Informations personnelles
+          .row
+            .col-md-6.col-xs-12
+              = f.text_field :lastname, {label: "Nom"}
+            .col-md-6.col-xs-12
+              = f.text_field :name, {label: "Prenom"}
+            .col-md-6.col-xs-12
+              = f.text_field :phone, {label: "Telephone portable"}
+            .col-md-6.col-xs-12
+              = f.text_field :email, {label: "Email"}
+            .col-md-6.col-xs-12
+              = f.date_field :birthday, {label: "Anniversaire"}
+            .col-md-6.col-xs-12
+              = f.text_field :address, {label: "Adresse"}
+            .col-md-6.col-xs-12
+              %label Avatar
+              .input-group
+                %span.input-group-btn
+                  %span.btn.btn-primary.btn-file
+                    Choisir un fichier
+                    = f.file_field :avatar, hide_label: true
+                %input.form-control{:readonly => "readonly", :type => "text"}/      
+            .col-md-6.col-xs-12
+              %label CV
+              .input-group
+                %span.input-group-btn
+                  %span.btn.btn-primary.btn-file
+                    Choisir un fichier
+                    = f.file_field :cv, hide_label: true
+                %input.form-control{:readonly => "readonly", :type => "text"}/
                         .form-group
                           %div
                             %button.btn.btn-primary{:name => "submit", :type => "submit"}
