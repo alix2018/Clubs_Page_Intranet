@@ -1,0 +1,36 @@
+.row{:style => "overflow-y: auto;"}
+.row{:style => "overflow-y: auto;"}
+  .col-xs-1
+  .col-xs-10
+    .panel.panel-default
+      .panel-body.text-center
+        .row
+          .btn-toolbar-sm
+            .btn-group
+              %a.btn.btn-default.calendar-button.1a{:href=>"#", :cal_id=>"1a"}
+                1e année
+            .btn-group
+              %a.btn.btn-default.calendar-button.2a{:href=>"#", :cal_id=>"2a"}
+                2e année
+              / %a.btn.btn-default.calendar-button.2ao{:href=>"#", :cal_id=>"2ao"}
+              /   options
+              %a.btn.btn-default.calendar-button.2ailc{:href=>"#", :cal_id=>"2ailc"}
+                ILC
+              %a.btn.btn-default.calendar-button.2aisi{:href=>"#", :cal_id=>"2aisi"}
+                ISI
+            .btn-group
+              %a.btn.btn-default.calendar-button.3a{:href=>"#", :cal_id=>"3a"}
+                3e année
+              %a.btn.btn-default.calendar-button.3ao{:href=>"#", :cal_id=>"3ao"}
+                options
+            .btn-group
+              %a.btn.btn-default.calendar-button.bde{:href=>"#", :cal_id=>"bde"}
+                BDE
+	.btn-group
+	  %a.btn.btn-default.calendar-button.clubs{:href=>"#", :cal_id=>"clubs"}
+         Clubs
+      .panel-body
+        .row
+          #calendar
+:javascript
+  window.current_user_promo = #{current_user.promo}
