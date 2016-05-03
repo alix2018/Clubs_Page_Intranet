@@ -1,0 +1,37 @@
+.row
+  .col-md-10.col-md-offset-1
+    .panel.panel-primary
+      .panel-body
+        %ul#myTab.nav.nav-pills.nav-justified
+          %li
+            %a{:href => "http://localhost:3000/club"}
+              %i.fa.fa-newspaper-o{"aria-hidden" => "true"}
+              \&nbsp; News des clubs
+          %li
+            %a{:href => "http://localhost:3000/club/lesclubs"}
+              %i.fa.fa-users{"aria-hidden" => "true"}
+              \&nbsp; Les Clubs
+          %li.active
+            %a{:href => "http://localhost:3000/club/subscribe"}
+              %i.fa.fa-list{"aria-hidden" => "true"}
+              \&nbsp; S'inscrire
+        #myTabContent.tab-content
+          #justifmenu01.tab-pane.fade.active.in
+            %p
+      .panel
+        .panel-body
+          = bootstrap_form_for(@club, multipart: true) do |f|
+            %h3 Informations personnelles
+            .row
+              .col-md-6.col-xs-12
+                = f.text_field :name, {label: "Prenom"}
+              .col-md-6.col-xs-12
+                = f.text_field :website, {label: "Site Web"}
+              .col-md-6.col-xs-12
+                = f.text_field :description, {label: "description"}
+              .col-md-12
+                = f.submit "Créer club", :class => "btn btn-primary pull-right"
+
+
+:javascript
+  window.current_user_promo = #{current_user.promo}

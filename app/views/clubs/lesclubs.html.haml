@@ -4,11 +4,11 @@
       .panel-body
         %ul#myTab.nav.nav-pills.nav-justified
           %li
-            %a{:href => "http://localhost:3000/club"} 
+            = link_to clubs_path do
               %i.fa.fa-newspaper-o{"aria-hidden" => "true"}
               \&nbsp; News des clubs
           %li.active
-            %a{:href => "http://localhost:3000/club/lesclubs"} 
+            %a{:href => "http://localhost:3000/club/lesclubs"}
               %i.fa.fa-users{"aria-hidden" => "true"}
               \&nbsp; Les Clubs
           %li

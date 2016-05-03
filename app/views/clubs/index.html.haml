@@ -45,7 +45,7 @@
                         %a{:href => "http://localhost:3000/club/article"}
                           %button.btn.btn-default Lire la suite
                       %ul.list-inline
-                        %li      
+                        %li
                           %a{:href => "#"} Il y a 2 jours
                         %li
                           %a{:href => "#"} 4 Commentaires
@@ -68,10 +68,10 @@
                       %p.lead
                         %button.btn.btn-default Lire la suite
                       %ul.list-inline
-                        %li      
+                        %li
                           %a{:href => "#"} Il y a 2 jours
                         %li
-                          %a{:href => "#"} 4 Commentaires                        
+                          %a{:href => "#"} 4 Commentaires
         %center
           %ul.pagination.pagination-alt
             %li.disabled
@@ -92,8 +92,7 @@
                 &raquo;
   .row
     .col-md-offset-11.col-md-1
-      %a#top{:href => "#"}
-        %img.img-responsive#button-top{:alt => "", :src =>  asset_path("arrows.png")}
+      %img.img-responsive#button-top{:alt => "", :src =>  asset_path("arrows.png")}
 
 :javascript
   window.current_user_promo = #{current_user.promo}
