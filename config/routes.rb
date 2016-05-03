@@ -23,13 +23,13 @@ Rails.application.routes.draw do
 
   get '/calendar' => 'calendar#index', as: :calendar
 
-  get '/club' => 'club#index', as: :club
-  get '/club/lesclubs' => 'clubs#lesclubs', as: :lesclubs
-  get '/club/subscribe' => 'clubs#subscribe', as: :subscribe
-  get '/club/rejoindreclub' => 'clubs#rejoindreclub', as: :rejoindreclub
+  get '/clubs' => 'clubs#news', as: :clubs
+  get '/clubs/list' => 'clubs#list', as: :clubs_list
+  get '/clubs/subscribe' => 'clubs#subscribe', as: :clubs_subscribe
+  get '/clubs/join' => 'clubs#join', as: :clubs_join
   #get '/club/creerclub' => 'club#creerclub', as: :creerclub
-  get '/club/profileclub' => 'clubs#profileclub', as: :profileclub
-  get '/club/article' => 'clubs#article', as: :article
+  get '/clubs/profile' => 'clubs#profile', as: :clubs_profile
+  get '/clubs/article' => 'clubs#article', as: :clubs_article
 
   resources :clubs
 

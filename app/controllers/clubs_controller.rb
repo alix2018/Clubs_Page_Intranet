@@ -1,20 +1,16 @@
 class ClubsController < ApplicationController
 
-  def index
-    @cur_prom= current_user.promo
+  def news
   end
 
-  def lesclubs
-    @cur_prom= current_user.promo
+  def list
   end
 
   def subscribe
-    @cur_prom= current_user.promo
   end
 
-  def rejoindreclub
+  def join
     @clubs = Club.all
-    @cur_prom= current_user.promo
   end
 
   def new
@@ -30,12 +26,10 @@ class ClubsController < ApplicationController
     end
   end
 
-  def profileclub
-    @cur_prom= current_user.promo
+  def profile
   end
 
   def article
-    @cur_prom= current_user.promo
   end
 
   private

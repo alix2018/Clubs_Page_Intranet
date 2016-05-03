@@ -4,15 +4,15 @@
       .panel-body{:style => "padding-bottom:0%"}
         %ul#myTab.nav.nav-pills.nav-justified
           %li
-            %a{:href => "http://localhost:3000/club"}
+            = link_to clubs_path do
               %i.fa.fa-newspaper-o{"aria-hidden" => "true"}
               \&nbsp; News des clubs
           %li
-            %a{:href => "http://localhost:3000/club/lesclubs"}
+            = link_to clubs_list_path do
               %i.fa.fa-users{"aria-hidden" => "true"}
               \&nbsp; Les Clubs
           %li
-            %a{:href => "http://localhost:3000/club/subscribe"}
+            = link_to clubs_subscribe_path do
               %i.fa.fa-list{"aria-hidden" => "true"}
               \&nbsp; S'inscrire
         #myTabContent.tab-content

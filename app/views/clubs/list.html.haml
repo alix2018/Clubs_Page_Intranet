@@ -8,11 +8,11 @@
               %i.fa.fa-newspaper-o{"aria-hidden" => "true"}
               \&nbsp; News des clubs
           %li.active
-            %a{:href => "http://localhost:3000/club/lesclubs"}
+            = link_to clubs_list_path do
               %i.fa.fa-users{"aria-hidden" => "true"}
               \&nbsp; Les Clubs
           %li
-            %a{:href => "http://localhost:3000/club/subscribe"}
+            = link_to clubs_subscribe_path do
               %i.fa.fa-list{"aria-hidden" => "true"}
               \&nbsp; S'inscrire
         #myTabContent.tab-content
@@ -44,10 +44,10 @@
                       Nicolas
                     %td drinkiit@gmail.com
                     %td
-                      %a.btn.btn-sm.btn-default{:href => "/users/84/profile"}
+                      %a.btn.btn-sm.btn-default{:href => "#"}
                         Voir les news
                     %td
-                      %a.btn.btn-sm.btn-default{:href => "/users/84/profile"}
+                      %a.btn.btn-sm.btn-default{:href => "#"}
                         Profil du club
 
 

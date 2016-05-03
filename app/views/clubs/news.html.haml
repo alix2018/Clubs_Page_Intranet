@@ -4,15 +4,15 @@
       .panel-body
         %ul#myTab.nav.nav-pills.nav-justified
           %li.active
-            %a{:href => "http://localhost:3000/club"}
+            = link_to clubs_path do
               %i.fa.fa-newspaper-o{"aria-hidden" => "true"}
               \&nbsp; News des clubs
           %li
-            %a{:href => "http://localhost:3000/club/lesclubs"}
+            = link_to clubs_list_path do
               %i.fa.fa-users{"aria-hidden" => "true"}
               \&nbsp; Les Clubs
           %li
-            %a{:href => "http://localhost:3000/club/subscribe"}
+            = link_to clubs_subscribe_path do
               %i.fa.fa-list{"aria-hidden" => "true"}
               \&nbsp; S'inscrire
         #myTabContent.tab-content
@@ -30,8 +30,9 @@
               .row
                 .col-md-2.col-sm-3.text-center
                   %center
-                    %a.story-img{:href => "http://localhost:3000/club/profileclub"}
-                      %img.img-responsive.img-circle{:src =>  asset_path("logo_driinkit.jpg"), :style => "width:110px;height:110px;margin-top:40%"}
+                    %a.story-img 
+                      = link_to clubs_profile_path do
+                        %img.img-responsive.img-circle{:src =>  asset_path("logo_driinkit.jpg"), :style => "width:110px;height:110px;margin-top:40%"}
                 .col-md-10.col-sm-9
                   %h3 Article 1
                   .row
@@ -42,8 +43,9 @@
                         dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
                         Aliquam in felis sit amet augue.
                       %p.lead
-                        %a{:href => "http://localhost:3000/club/article"}
-                          %button.btn.btn-default Lire la suite
+                        %a
+                          = link_to clubs_article_path do
+                            %button.btn.btn-default Lire la suite
                       %ul.list-inline
                         %li
                           %a{:href => "#"} Il y a 2 jours
