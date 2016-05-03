@@ -24,4 +24,8 @@ class ClubController < ApplicationController
     @cur_prom= current_user.promo
   end 
 
+  def article
+    @cur_prom= current_user.promo
+  end 
+
 end
