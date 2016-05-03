@@ -1,23 +1,8 @@
 .row
   .col-md-10.col-md-offset-1
     .panel.panel-primary
+      .panel-heading Liste des clubs
       .panel-body
-        %ul#myTab.nav.nav-pills.nav-justified
-          %li
-            = link_to clubs_path do
-              %i.fa.fa-newspaper-o{"aria-hidden" => "true"}
-              \&nbsp; News des clubs
-          %li.active
-            = link_to clubs_list_path do
-              %i.fa.fa-users{"aria-hidden" => "true"}
-              \&nbsp; Les Clubs
-          %li
-            = link_to clubs_subscribe_path do
-              %i.fa.fa-list{"aria-hidden" => "true"}
-              \&nbsp; S'inscrire
-        #myTabContent.tab-content
-          #justifmenu01.tab-pane.fade.active.in
-            %p
         .panel
           .panel-body
             %ul.nav.nav-tabs{:role => "tablist"}

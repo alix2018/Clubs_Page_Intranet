@@ -1,26 +1,9 @@
 .row
   .col-md-10.col-md-offset-1
     .panel.panel-primary
-      .panel-body{:style => "padding-bottom:0%"}
-        %ul#myTab.nav.nav-pills.nav-justified
-          %li
-            = link_to clubs_path do
-              %i.fa.fa-newspaper-o{"aria-hidden" => "true"}
-              \&nbsp; News des clubs
-          %li
-            = link_to clubs_list_path do
-              %i.fa.fa-users{"aria-hidden" => "true"}
-              \&nbsp; Les Clubs
-          %li
-            = link_to clubs_subscribe_path do
-              %i.fa.fa-list{"aria-hidden" => "true"}
-              \&nbsp; S'inscrire
-        #myTabContent.tab-content
-          #justifmenu01.tab-pane.fade.active.in
-            %p
-        .panel
+      .panel-body{:style => "padding-bottom:0%;padding-top:0%"}
         .row{:style => "background-color:rgba(52, 73, 105,0.1);color:black;border-radius: 4px 4px 4px 4px;"}
-          .col-md-3.col-xs-4{:style => "background-color:rgba(26, 188, 156,0.5);color:black;display:table-cell;float:none;border-radius:4px"}
+          .col-md-3.col-xs-4{:style => "background-color:rgba(66,139,202,0.8);color:black;display:table-cell;float:none;border-radius:4px"}
             %br
               %center{:style => "margin-top:40%"}
                 %img.img-responsive.img-circle{:src => asset_path("logo_driinkit.jpg"), :style => "width:150px;height:150px"}
