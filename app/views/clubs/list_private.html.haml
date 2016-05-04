@@ -1,0 +1,23 @@
+.row
+  .col-md-10.col-md-offset-1
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Liste des clubs
+      .panel-body
+        %ul.nav.nav-tabs{:role => "tablist"}
+          %li{:role => "presentation"}
+            = link_to "Tous les clubs", clubs_list_path, {:role => "tab"}    
+          %li.active{:role => "liste"}
+            %a{"aria-controls" => "my-clubs", "data-toggle" => "tab", :role => "tab"}
+              Mes clubs   
+        .tab-content
+          .table-responsive
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th Nom du club
+                  %th Site Web
+                  %th Profil
+                  %th News
+              %tbody
+
