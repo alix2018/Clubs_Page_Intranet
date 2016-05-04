@@ -4,14 +4,17 @@
       .panel-heading Créer un club
       .panel-body
         = bootstrap_form_for(@club, multipart: true) do |f|
-          %h3 Informations personnelles
+          %center
+            %h1 Formulaire de création
+          %br
+          %br
           .row
             .col-md-6.col-xs-12
-              = f.text_field :name, {label: "Prenom"}
+              = f.text_field :name, {label: "Comment veux-tu appeler ton club?", :placeholder => "Nom du club"}
             .col-md-6.col-xs-12
-              = f.text_field :website, {label: "Site Web"}
+              = f.text_field :website, {label: "Quel est le site web de ton club?", :placeholder => "Site Web"}
             .col-md-12
-              = f.text_area :description, {label: "description"}
+              = f.text_area :description, {label: "Description", :placeholder => "Une petite description..."}
             .col-md-12
               = f.submit "Créer club", :class => "btn btn-primary pull-right"
 

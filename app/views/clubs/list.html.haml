@@ -1,40 +1,36 @@
 .row
   .col-md-10.col-md-offset-1
     .panel.panel-primary
-      .panel-heading Liste des clubs
+      .panel-heading
+        %h3.panel-title Liste des clubs
       .panel-body
-        .panel
-          .panel-body
-            %ul.nav.nav-tabs{:role => "tablist"}
-              %li.active{:role => "liste"}
-                %a{"aria-controls" => "my-clubs", "data-toggle" => "tab", :href => "#my-clubs", :role => "tab"}
-                  Mes clubs
-              %li{:role => "presentation"}
-                %a{"aria-controls" => "all-clubs", "data-toggle" => "tab", :href => "#all-clubs", :role => "tab"}
-                  Tous les clubs
-            .tab-content
-          #my-clubs.active.tab-pane{:role => "tabpanel"}
-            .table-responsive
-              %table.table.table-striped
-                %thead
-                  %tr
-                    %th Nom du club
-                    %th Président
-                    %th Email
-                %tbody
+        %ul.nav.nav-tabs{:role => "tablist"}
+          %li.active{:role => "liste"}
+            %a{"aria-controls" => "all-clubs", "data-toggle" => "tab", :role => "tab"}
+              Tous les clubs
+          %li{:role => "presentation"}
+            = link_to "Mes clubs", clubs_list_private_path, {:role => "tab"}               
+        .tab-content
+          .table-responsive
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th Nom du club
+                  %th Site Web
+                  %th Profil
+                  %th News
+              %tbody
+                - @clubs.sort_by{|club| club.name }.each do | club |
                   %tr
                     %td
-                      Drinkiit
+                      - if club.name
+                        = club.name
                     %td
-                      Nicolas
-                    %td drinkiit@gmail.com
+                      - if club.website
+                        = club.website
                     %td
-                      %a.btn.btn-sm.btn-default{:href => "#"}
+                      %a.btn.btn-sm.btn-default{:href => clubs_profile_path}
+                        Voir le profil
+                    %td
+                      %a.btn.btn-sm.btn-default{:href => clubs_path}
                         Voir les news
-                    %td
-                      %a.btn.btn-sm.btn-default{:href => "#"}
-                        Profil du club
-
-
-:javascript
-  window.current_user_promo = #{current_user.promo}

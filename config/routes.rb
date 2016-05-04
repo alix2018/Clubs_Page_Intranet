@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   get '/clubs' => 'clubs#news', as: :clubs
   get '/clubs/list' => 'clubs#list', as: :clubs_list
+  get '/clubs/list_private' => 'clubs#list_private', as: :clubs_list_private
   get '/clubs/subscribe' => 'clubs#subscribe', as: :clubs_subscribe
   get '/clubs/join' => 'clubs#join', as: :clubs_join
   #get '/club/creerclub' => 'club#creerclub', as: :creerclub
