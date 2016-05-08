@@ -1,8 +1,5 @@
 class ClubsController < ApplicationController
 
-  def news
-  end
-
   def list
     @clubs = Club.all 
   end
@@ -12,24 +9,6 @@ class ClubsController < ApplicationController
   end
 
   def subscribe
-  end
-
-  def new_article
-    #@club_users= Clubs_users.all
-    #if @club_users.user_id==current_user.id
-      #@clubs = Clubs_users.where(user_id: params[:id]).where(club_id: params[:id])
-    #end
-    @clubs=Club.all
-    @article=Article.new
-  end
-
-  def create_article
-    @article=Article.new(articles_params)
-    if @club.save
-      redirect_to root_path
-    else
-      render :new
-    end
   end
 
   def join
@@ -56,9 +35,7 @@ class ClubsController < ApplicationController
   end
 
   def profile
-  end
-
-  def article
+    @club = Club.where(club_id: params[:id])
   end
 
   private

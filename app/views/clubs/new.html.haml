@@ -15,8 +15,15 @@
               = f.text_field :website, {label: "Quel est le site web de ton club?", :placeholder => "Site Web"}
             .col-md-12
               = f.text_area :description, {label: "Description", :placeholder => "Une petite description..."}
+              %label Logo
+              .input-group
+                %span.input-group-btn
+                  %span.btn.btn-primary.btn-file
+                    Choisir un fichier
+                    = f.file_field :logo, hide_label: true
+                %input.form-control{:readonly => "readonly", :type => "text"}/      
             .col-md-12
-              = f.submit "Créer club", :class => "btn btn-primary pull-right"
+              = f.submit "Créer un article", :class => "btn btn-primary pull-right"
 
 
 :javascript

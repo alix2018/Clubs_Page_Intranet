@@ -5,8 +5,9 @@
       .panel-body
       .panel
         .panel-body
+        = bootstrap_form_for(@article, multipart: true) do |f|
           %center
-            %h1 Formulaire de création d'articles
+            %h1 Formulaire de création d'article
           %br
             %br
               :css
@@ -17,8 +18,8 @@
                     .col-md-12.col-sm-12.col-xs-12
                       %form{:method => "post"}
                         .form-group
-                          %label.control-label{:for => "Quel club veux tu rejoindre?"}
-                            Pour lequel de tes clubs veux tu créer un article?
+                          %label.control-label{:for => "Quel club veux tu rejoindre ?"}
+                            Pour lequel de tes clubs veux tu créer un article ?
                             %span.asteriskField
                               *
                           .icon-addon.addon-md
@@ -62,7 +63,6 @@
                           %div
                             %button.btn.btn-primary{:name => "submit", :type => "submit", :class => "btn btn-primary pull-right"}
                               Publier l'article
-
 
 :javascript
   window.current_user_promo = #{current_user.promo}
