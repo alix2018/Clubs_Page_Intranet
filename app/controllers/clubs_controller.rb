@@ -47,7 +47,7 @@ class ClubsController < ApplicationController
     else
       render :new
     end
-    @inscription = Clubs_users.new
+    @inscription = Inscription.new
     @inscription.club_id = @club.id
     @inscription.user_id = current_user.id;
     @inscription.admin = true;

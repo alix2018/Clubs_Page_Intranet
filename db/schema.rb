@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504093639) do
+ActiveRecord::Schema.define(version: 20160508065709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,15 +35,6 @@ ActiveRecord::Schema.define(version: 20160504093639) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "clubs_users", id: false, force: :cascade do |t|
-    t.integer "club_id"
-    t.integer "user_id"
-    t.boolean "admin"
-  end
-
-  add_index "clubs_users", ["club_id"], name: "index_clubs_users_on_club_id", using: :btree
-  add_index "clubs_users", ["user_id"], name: "index_clubs_users_on_user_id", using: :btree
-
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.text     "location"
@@ -56,6 +47,15 @@ ActiveRecord::Schema.define(version: 20160504093639) do
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
+
+  create_table "inscriptions", force: :cascade do |t|
+    t.integer  "club_id"
+    t.integer  "user_id"
+    t.boolean  "valide"
+    t.boolean  "admin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "oauth_access_grants", force: :cascade do |t|
     t.integer  "resource_owner_id", null: false

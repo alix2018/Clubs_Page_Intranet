@@ -36,8 +36,21 @@ c2.website = "ares-ensiie1.eu"
 c2.description = "On fait du sport tout les jours"
 c2.save!
 
-u1.clubs << c1
-u1.save!
+i1=Inscription.new
+i1.club_id = c1.id
+i1.user_id = u1.id
+i1.valide = true
+i1.admin = true
+i1.save!
+
+i2=Inscription.new
+i2.club_id = c1.id
+i2.user_id = u2.id
+i2.valide = true
+i2.admin = false
+i2.save!
+
+
 
 a1 = Article.new
 a1.title = "Barbecue"
