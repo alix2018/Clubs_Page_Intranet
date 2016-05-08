@@ -20,4 +20,17 @@
                   %th Profil
                   %th News
               %tbody
-
+                - @clubs.sort_by{|club| club.name }.each do | club |
+                  %tr
+                    %td
+                      - if club.name
+                        = club.name
+                    %td
+                      - if club.website
+                        = club.website
+                    %td
+                      %a.btn.btn-sm.btn-default{:href => clubs_profile_path}
+                        Voir le profil
+                    %td
+                      %a.btn.btn-sm.btn-default{:href => clubs_path}
+                        Voir les news

@@ -8,7 +8,7 @@ class ClubsController < ApplicationController
   end
 
   def list_private
-    @clubs =Club.all
+    @clubs = Club.joins(:inscriptions).where(id: current_user.id)
   end
 
   def subscribe
