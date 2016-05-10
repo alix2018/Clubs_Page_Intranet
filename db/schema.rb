@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(version: 20160508182727) do
     t.datetime "logo_updated_at"
   end
 
+  create_table "clubs_users", id: false, force: :cascade do |t|
+    t.integer "club_id"
+    t.integer "user_id"
+    t.boolean "admin"
+    t.boolean "valide"
+  end
+
+  add_index "clubs_users", ["club_id"], name: "index_clubs_users_on_club_id", using: :btree
+  add_index "clubs_users", ["user_id"], name: "index_clubs_users_on_user_id", using: :btree
+
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.text     "location"
