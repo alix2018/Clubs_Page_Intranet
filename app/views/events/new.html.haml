@@ -1,0 +1,28 @@
+.row
+  .col-md-10.col-md-offset-1
+    .panel.panel-primary
+      .panel-heading Créer un évènement
+      .panel-body
+        = bootstrap_form_for(@event, multipart: true) do |f|
+          %center
+            %h1 Formulaire de création
+          %br
+          %br
+          .row
+            .col-md-12.col-xs-12
+              = f.text_field :title, {label: "Nom de l'évènement", :placeholder => "Nom de l'évènement", :type => "text"}
+            .col-md-6.col-xs-12
+              =f.text_field :date_start, {label: "Date de début de l'événement", :name => "date_begin_event", :type => "date", :placeholder => "Date de début de l'évènement"}
+            .col-md-6.col-xs-12
+              =f.text_field :date_end, {label: "Date de fin de l'événement", :name => "date_end_event", :type => "date", :placeholder => "Date de fin de l'évènement"}
+            .col-md-6.col-xs-12
+              =f.text_field :hour_start, {label: "Heure de début de l'événement", :name => "hour_begin_event", :type => "time", :placeholder => "Heure de début de l'évènement"}
+            .col-md-6.col-xs-12
+              =f.text_field :hour_end, {label: "Heure de fin de l'événement", :name => "hour_end_event", :type => "time", :placeholder => "Heure de fin de l'évènement"}
+            .col-md-12
+              = f.submit "Créer un article", :class => "btn btn-primary pull-right", :style => "margin-top: 2%"
+
+
+:javascript
+  window.current_user_promo = #{current_user.promo}
+
