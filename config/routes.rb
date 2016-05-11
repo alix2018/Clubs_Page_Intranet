@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   resources :clubs
   resources :articles
-
+  resources :events
 
   get '/files/*path' => 'files#index', as: :files
   get '/files' => 'files#index', as: :base_files
