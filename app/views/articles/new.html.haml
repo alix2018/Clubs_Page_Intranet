@@ -1,23 +1,4 @@
-.row
-  .col-md-10.col-md-offset-1
-    .panel.panel-primary
-      .panel-heading Créer un article
-      .panel-body
-        = bootstrap_form_for(@article, multipart: true) do |f|
-          %center
-            %h1 Formulaire de création
-          %br
-          %br
-          .row
-            
-            .col-md-12.col-xs-12
-              = f.text_field :title, {label: "Titre de l'article", :placeholder => "Titre de l'article"}
-            .col-md-12
-              = f.text_area :content, {label: "Contenu de l'article", :placeholder => "Contenu de l'article", :class => "text_area", :rows => "9"}
-            .col-md-12
-              = f.submit "Créer un article", :class => "btn btn-primary pull-right", :style => "margin-top: 2%"
-
-
-:javascript
-  window.current_user_promo = #{current_user.promo}
-
+- model_class = Article
+.page-header
+  %h1=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize
+= render :partial => "form"

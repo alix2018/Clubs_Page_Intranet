@@ -32,6 +32,8 @@ gem "font-awesome-rails"
 gem 'fullcalendar.io-rails'
 gem 's3', '~> 0.3.23'
 gem 'phony_rails'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0' # http://ruby.awsblog.com/post/TxFKSK2QJE6RPZ/Upcoming-Stable-Release-of-AWS-SDK-for-Ruby-Version-2

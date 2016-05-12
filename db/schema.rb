@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511093159) do
+ActiveRecord::Schema.define(version: 20160512163539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160511093159) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "club_id",    null: false
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
@@ -43,7 +44,6 @@ ActiveRecord::Schema.define(version: 20160511093159) do
     t.integer "club_id"
     t.integer "user_id"
     t.boolean "admin"
-    t.boolean "valide"
   end
 
   add_index "clubs_users", ["club_id"], name: "index_clubs_users_on_club_id", using: :btree
@@ -122,13 +122,6 @@ ActiveRecord::Schema.define(version: 20160511093159) do
 
   add_index "oauth_applications", ["owner_id", "owner_type"], name: "index_oauth_applications_on_owner_id_and_owner_type", using: :btree
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true, using: :btree
-
-  create_table "publications", force: :cascade do |t|
-    t.integer  "article_id"
-    t.integer  "club_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

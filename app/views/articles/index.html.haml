@@ -4,92 +4,60 @@
       .panel-heading News des clubs
       .panel-body
         .panel
-          .panel-body
+          .marge{:style => "padding:2%"}
             .btn-group{"data-toggle" => "buttons", :style => "float:right;margin-right:0"}
               %label.btn.btn-primary
                 %input#option1{:name => "mesclubs", :type => "radio"} Mes clubs
               %label.btn.btn-primary.active
                 %input#option2{:name => "touslesclubs", :type => "radio"} Tous les clubs
-          .panel.panel-default
-            .panel-body
-              .row
-                .col-md-2.col-sm-3.text-center
-                  %center
-                    %a.story-img 
-                      = link_to clubs_profile_path do
-                        %img.img-responsive.img-circle{:src =>  asset_path("logo_driinkit.jpg"), :style => "width:110px;height:110px;margin-top:40%"}
-                .col-md-10.col-sm-9
-                  %h3 Article 1
-                  .row
-                    .col-xs-12
-                      %p
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                        Aliquam in felis sit amet augue.
-                      %p.lead
-                        %a
-                          = link_to clubs_article_path do
-                            %button.btn.btn-default Lire la suite
-                      %ul.list-inline
-                        %li
-                          %a{:href => "#"} Il y a 2 jours
-                        %li
-                          %a{:href => "#"} 4 Commentaires
-          .panel.panel-default
-            .panel-body
-              .row
-                .col-md-2.col-sm-3.text-center
-                  %center
-                    %a.story-img{:href => "#"}
-                      %img.img-responsive.img-circle{:src => "//placehold.it/90x90&text=90x90", :style => "width:90px;height:90px;margin-top:40%", :title => "Voir le profil"}/
-                .col-md-10.col-sm-9
-                  %h3 Article 2
-                  .row
-                    .col-xs-12
-                      %p
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                        Aliquam in felis sit amet augue.
-                      %p.lead
-                        %button.btn.btn-default Lire la suite
-                      %ul.list-inline
-                        %li
-                          %a{:href => "#"} Il y a 2 jours
-                        %li
-                          %a{:href => "#"} 4 Commentaires
+          %br
+          %br
+          - @articles.each do | article |
+            .panel.panel-default
+              .panel-body
+                .row
+                  .col-md-2.col-sm-3.text-center
+                    %center
+                      %a.story-img 
+                        = link_to club_path(article) do
+                          %img.img-responsive.img-circle{:src => article.club.logo.url, :style => "width:110px;height:110px;margin-top:40%"}
+                  .col-md-10.col-sm-9
+                    %h3=article.title
+                    .row
+                      .col-xs-12
+                        %p
+                          =article.content
+                        %p.lead
+                          %a
+                            = link_to clubs_article_path do
+                              %button.btn.btn-default Lire la suite
+                        %ul.list-inline
+                          %li
+                            Il y a 
+                            =time_ago_in_words(article.created_at)
+                          %li
+                            %a{:href => "#"}
         %center
-          %ul.pagination.pagination-alt
-            %li.disabled
-              %a{:href => "#"}
-                &laquo;
-            %li.active
-              %a{:href => "#"} 1
-            %li
-              %a{:href => "#"} 2
-            %li
-              %a{:href => "#"} 3
-            %li
-              %a{:href => "#"} 4
-            %li
-              %a{:href => "#"} 5
-            %li
-              %a{:href => "#"}
-                &raquo;
-        %h1 Listing Articles
-        %table
-          %thead
-            %tr
-              %th{:colspan => "3"}
-          %tbody
-            - @articles.each do |article|
-              %tr
-                %td= link_to 'Show', article
-                %td= link_to 'Edit', edit_article_path(article)
-                %td= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }
-        %br
-          = link_to 'New Article', new_article_path                
+          = will_paginate @collection, renderer: BootstrapPagination::Rails
+        / %center
+        /   %ul.pagination.pagination-alt
+        /     %li.disabled
+        /       %a{:href => "#"}
+        /         &laquo;
+        /     %li.active
+        /       %a{:href => "#"} 1
+        /     %li
+        /       %a{:href => "#"} 2
+        /     %li
+        /       %a{:href => "#"} 3
+        /     %li
+        /       %a{:href => "#"} 4
+        /     %li
+        /       %a{:href => "#"} 5
+        /     %li
+        /       %a{:href => "#"}
+        /         &raquo;
+      
   .row
     .col-md-offset-11.col-md-1
       %img.img-responsive#button-top{:alt => "", :src =>  asset_path("arrows.png")}

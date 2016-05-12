@@ -25,7 +25,7 @@
                             %select.form-control
                               %option Nom du club
                               - @clubs.each do | club |
-                                %option=club.name
+                                %option{:value => club.id}=club.name
                         .form-group
                           %label.control-label{:for => "poste"}
                             A quel poste?

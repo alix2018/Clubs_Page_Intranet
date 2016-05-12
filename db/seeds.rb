@@ -56,12 +56,14 @@ a1 = Article.new
 a1.title = "Barbecue"
 a1.content = "Saucisse à 1€, boisson à 0.60€"
 a1.is_private = false
+a1.club = c1
 a1.save!
 
 a2 = Article.new
 a2.title = "Barbecue_private"
 a2.content = "Saucisse à 1€, boisson à 0.60€"
 a2.is_private = true
+a2.club = c2
 a2.save!
 
 a1.user_id=u1.id

@@ -1,11 +1,12 @@
-class ClubsController < ApplicationController
+    class ClubsController < ApplicationController
 
-  def list
+  def index
     @clubs = Club.all 
   end
 
   def list_private
-    @clubs = Club.joins(:inscriptions).where(id: current_user.id)
+    @clubs = Club.joins(:inscriptions).where("inscriptions.user_id" => current_user.id)
+    render "index"
   end
 
   def subscribe
@@ -34,15 +35,18 @@ class ClubsController < ApplicationController
     @inscription.save
   end
 
-  def profile
-    @club = Club.where(club_id: params[:id])
+  def article
+  end
+
+  def show
+    @club = Club.find(params[:id])
   end
 
   private
 
 
   def clubs_params
-    params.require(:club).permit(:name, :website, :description)
+    params.require(:club).permit(:name, :website, :description, :logo)
   end
 
 end
