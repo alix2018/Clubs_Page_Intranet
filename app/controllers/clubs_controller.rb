@@ -23,7 +23,7 @@
   def create
     @club = Club.new(clubs_params)
     if @club.save
-      redirect_to root_path
+      redirect_to articles_path
     else
       render :new
     end

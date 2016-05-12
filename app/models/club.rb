@@ -5,6 +5,7 @@ class Club < ActiveRecord::Base
 
   validates :name, presence: {message: "Tu trouves pas qu't'as oublié quelque chose?!"}
   validates :description, presence: {message: "Tu trouves pas qu't'as oublié quelque chose?!"}
+  validates :name, length: { maximum: 20, message: "C'est trop long, comme ma... (Maximum 20 caractère)" }
 
   def contains_user_invalide(id)
     return self.inscriptions.where(:id => id).where(:valide => false).count > 0
