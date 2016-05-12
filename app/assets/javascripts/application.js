@@ -19,8 +19,6 @@
 //= require fullcalendar/gcal
 //= require fullcalendar/lang/fr
 //= require_tree .
-//= require bootstrap-datepicker
-//= require bootstrap-timepicker
 
 toastr.options = {
   "closeButton": true,
