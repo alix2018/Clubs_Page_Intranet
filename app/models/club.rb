@@ -3,7 +3,8 @@ class Club < ActiveRecord::Base
   has_many :publications
   has_many :invitations
 
-  validates :name, presence: true
+  validates :name, presence: {message: "Tu trouves pas qu't'as oublié quelque chose?!"}
+  validates :description, presence: {message: "Tu trouves pas qu't'as oublié quelque chose?!"}
 
   def contains_user_invalide(id)
     return self.inscriptions.where(:id => id).where(:valide => false).count > 0

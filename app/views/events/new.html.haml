@@ -12,7 +12,8 @@
             .col-md-12.col-xs-12
               = f.text_field :title, {label: "Nom de l'évènement", :placeholder => "Nom de l'évènement", :type => "text"}
             .col-md-12.col-xs-12
-              = f.text_field :location, {label: "Lieu de l'évènement", :placeholder => "Lieu de l'évènement", :type => "text", :style => "margin-bottom: 5%"}
+              = f.text_field :location, {label: "Lieu de l'évènement", :placeholder => "Lieu de l'évènement", :type => "text", :class => "adresse-autocomplete"}                
+
             .col-md-6.col-xs-12
               =f.text_field :date_start, {label: "Date de début de l'événement", :type => "text", :placeholder => "Date de début de l'évènement", :class => "datetimepicker"  }
             .col-md-6.col-xs-12
@@ -23,4 +24,4 @@
 
 :javascript
   window.current_user_promo = #{current_user.promo}
-
+  autocomplete_center = new (google.maps.places.Autocomplete)($('.adresse-autocomplete')[0])

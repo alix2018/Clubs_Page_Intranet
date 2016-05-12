@@ -33,6 +33,7 @@
     @inscription.admin = true;
     @inscription.valide = true;
     @inscription.save
+    flash[:notice] = "Le club a été créé. Congratulations!!!"
   end
 
   def article
