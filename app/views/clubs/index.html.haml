@@ -1,0 +1,35 @@
+.row
+  .col-md-10.col-md-offset-1
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Liste des clubs
+      .panel-body
+        %ul.nav.nav-tabs{:role => "tablist"}
+          %li{:role => "presentation", :class=>("active" if current_page?(clubs_path))}
+            = link_to "Tous les clubs", clubs_path
+          %li{:role => "presentation", :class=>("active" if current_page?(clubs_list_private_path))}
+            = link_to "Mes clubs", clubs_list_private_path           
+        .tab-content
+          .table-responsive
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th Nom du club
+                  %th Site Web
+                  %th Profil
+                  %th News
+              %tbody
+                - @clubs.sort_by{|club| club.name }.each do | club |
+                  %tr
+                    %td
+                      - if club.name
+                        = club.name
+                    %td
+                      - if club.website
+                        = club.website
+                    %td
+                      = link_to club_path(club), :class=>"btn btn-sm btn-default" do
+                        Voir le profil
+                    %td
+                      %a.btn.btn-sm.btn-default{:href => clubs_path}
+                        Voir les news
