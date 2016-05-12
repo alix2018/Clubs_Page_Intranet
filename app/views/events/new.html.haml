@@ -11,16 +11,34 @@
           .row
             .col-md-12.col-xs-12
               = f.text_field :title, {label: "Nom de l'évènement", :placeholder => "Nom de l'évènement", :type => "text"}
+            .col-md-12.col-xs-12
+              = f.text_field :location, {label: "Lieu de l'évènement", :placeholder => "Lieu de l'évènement", :type => "text", :style => "margin-bottom: 5%"}
             .col-md-6.col-xs-12
-              =f.text_field :date_start, {label: "Date de début de l'événement", :name => "date_begin_event", :type => "date", :placeholder => "Date de début de l'évènement"}
+              =f.text_field :date_start, {label: "Date de début de l'événement", :name => "date_begin_event", :type => "text", :placeholder => "Date de début de l'évènement", :class => "datepicker"  }
+              :javascript
+                $(document).ready(function(){
+                  $('.datepicker').datepicker({toggleActive: true,orientation: "top right",language: "fr",autoclose: true,todayHighlight: true});
+                });
             .col-md-6.col-xs-12
-              =f.text_field :date_end, {label: "Date de fin de l'événement", :name => "date_end_event", :type => "date", :placeholder => "Date de fin de l'évènement"}
+              =f.text_field :date_end, {label: "Date de fin de l'événement", :name => "date_end_event", :type => "text", :placeholder => "Date de fin de l'évènement", :class => "datepicker" }
+              :javascript
+                $(document).ready(function(){
+                  $('.datepicker').datepicker({orientation: "top right",language: "fr",autoclose: true,todayHighlight: true});
+                });
             .col-md-6.col-xs-12
-              =f.text_field :hour_start, {label: "Heure de début de l'événement", :name => "hour_begin_event", :type => "time", :placeholder => "Heure de début de l'évènement"}
+              =f.text_field :hour_start, {label: "Heure de début de l'événement", :name => "hour_begin_event", :type => "text", :placeholder => "Heure de début de l'évènement", :class => "timepicker" }
+              :javascript
+                $('.timepicker').timepicker().on('changeTime', function(ev) {
+                    alert('time has changed');
+                });
             .col-md-6.col-xs-12
-              =f.text_field :hour_end, {label: "Heure de fin de l'événement", :name => "hour_end_event", :type => "time", :placeholder => "Heure de fin de l'évènement"}
+              =f.text_field :hour_end, {label: "Heure de fin de l'événement", :name => "heure_end_event", :type => "text", :placeholder => "Heure de fin de l'évènement", :class => "timepicker"}
+              :javascript
+                $('.timepicker').timepicker().on('changeTime', function(ev) {
+                    alert('time has changed');
+                });
             .col-md-12
-              = f.submit "Créer un article", :class => "btn btn-primary pull-right", :style => "margin-top: 2%"
+              = f.submit "Créer un évènement", :class => "btn btn-primary pull-right", :style => "margin-top: 2%"
 
 
 :javascript
