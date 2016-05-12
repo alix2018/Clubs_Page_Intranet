@@ -24,8 +24,10 @@
     @club = Club.new(clubs_params)
     if @club.save
       redirect_to articles_path
+      flash[:notice] = "Le club a été créé. Congratulations!!!"
     else
       render :new
+      flash[:error] = "Le club n'a pas été créé."
     end
     @inscription = Inscription.new
     @inscription.club_id = @club.id
@@ -33,8 +35,7 @@
     @inscription.admin = true;
     @inscription.valide = true;
     @inscription.save
-    flash[:notice] = "Le club a été créé. Congratulations!!!"
-  end
+      end
 
   def article
   end
