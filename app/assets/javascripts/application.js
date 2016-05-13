@@ -19,6 +19,7 @@
 //= require fullcalendar/gcal
 //= require fullcalendar/lang/fr
 //= require_tree .
+//= require bootstrap-switch
 
 toastr.options = {
   "closeButton": true,
