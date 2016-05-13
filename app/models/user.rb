@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
   has_many :oauth_applications, class_name: 'Doorkeeper::Application', as: :owner
-  belongs_to :inscriptions
   phony_normalize :phone, default_country_code: 'FR'
 
   has_attached_file :avatar, styles: {
@@ -13,6 +12,10 @@ class User < ActiveRecord::Base
     medium: '300x300>'
   },
     default_url: "/unknown_user.png"
+
+  has_many :articles
+  has_many :inscriptions
+  has_many :club, through: :inscriptions
 
 
   has_attached_file :cv

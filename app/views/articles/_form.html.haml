@@ -10,13 +10,8 @@
           %br
           .row
             .col-md-6.col-xs-12
-              %label.control-label
-                Pour quel club veux-tu créer ton article ?
-                %span.asteriskField
               .icon-addon.addon-md
-                %select.form-control
-                  %option Nom du club
-                  - @club.name
+                = f.select :club_id, current_user.club.collect { |p| [ p.name, p.id ]}, label: "Pour quel club veux-tu publier un article" 
             .col-md-6.col-xs-12
               = f.text_field :title, {label: "Quel est le titre de ton article", :placeholder => "Titre de l'article"}
             .col-md-6.col-xs-12
