@@ -36,3 +36,5 @@
                 = link_to clubs_join_path do
                   %button.btn.btn-default{:type => "button"} Rejoindre ce club
 
+                - if @admin
+                  %button.btn.btn-default{:type => "button"} Supprimer un membre

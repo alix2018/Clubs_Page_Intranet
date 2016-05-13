@@ -38,6 +38,7 @@ class ClubsController < ApplicationController
 
   def show
     @club = Club.find(params[:id])
+    @admin = current_user.is_admin_of?(@club)
   end
 
   private
