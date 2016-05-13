@@ -2,7 +2,7 @@
   .col-md-10.col-md-offset-1
     .panel.panel-primary
       .panel-heading
-        %h3.panel-title Liste des articles
+        %h3.panel-title News des clubs
       .panel-body
         %ul.nav.nav-tabs{:role => "tablist"}
           %li{:role => "presentation", :class=>("active" if current_page?(articles_path))}
@@ -11,32 +11,60 @@
             = link_to "Mes clubs", articles_list_private_path 
           %br
           %br
-          - @articles.each do | article |
-            .panel.panel-default
-              .panel-body
-                .row
-                  .col-md-2.col-sm-3.text-center
-                    %center
-                      - if article.club
-                        %a.story-img 
-                          = link_to article.club do
-                            %img.img-responsive.img-circle{:src => article.club.logo.url, :style => "width:110px;height:110px;margin-top:40%"}
-                  .col-md-10.col-sm-9
-                    %h3=article.title
-                    .row
-                      .col-xs-12
-                        %p
-                          =article.content
-                        %p.lead
-                          %a
-                            = link_to articles_path(article) do
-                              %button.btn.btn-default Lire la suite
-                        %ul.list-inline
-                          %li
-                            Il y a 
-                            =time_ago_in_words(article.created_at, language:"fr")
-                          %li
-                            %a{:href => "#"}
+          - if current_page?(articles_path)
+            - @articles_np.each do | article |
+              .panel.panel-default
+                .panel-body
+                  .row
+                    .col-md-2.col-sm-3.text-center
+                      %center
+                        - if article.club
+                          %a.story-img 
+                            = link_to article.club do
+                              %img.img-responsive.img-circle{:src => article.club.logo.url, :style => "width:110px;height:110px;margin-top:40%"}
+                    .col-md-10.col-sm-9
+                      %h3=article.title
+                      .row
+                        .col-xs-12
+                          %p
+                            =article.content
+                          %p.lead
+                            %a
+                              = link_to article, :class=>"btn btn-md btn-default" do
+                                Lire la suite
+                          %ul.list-inline
+                            %li
+                              Il y a 
+                              =time_ago_in_words(article.created_at, language:"fr")
+                            %li
+                              %a{:href => "#"}
+          - else
+            - @articles.each do | article |
+              .panel.panel-default
+                .panel-body
+                  .row
+                    .col-md-2.col-sm-3.text-center
+                      %center
+                        - if article.club
+                          %a.story-img 
+                            = link_to article.club do
+                              %img.img-responsive.img-circle{:src => article.club.logo.url, :style => "width:110px;height:110px;margin-top:40%"}
+                    .col-md-10.col-sm-9
+                      %h3=article.title
+                      .row
+                        .col-xs-12
+                          %p
+                            =article.content
+                          %p.lead
+                            %a
+                              = link_to article, :class=>"btn btn-md btn-default" do
+                                Lire la suite
+                          %ul.list-inline
+                            %li
+                              Il y a 
+                              =time_ago_in_words(article.created_at, language:"fr")
+                            %li
+                              %a{:href => "#"}
         %center
           = will_paginate @collection, renderer: BootstrapPagination::Rails
         / %center

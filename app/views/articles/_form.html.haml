@@ -1,11 +1,17 @@
 .row
   .col-md-10.col-md-offset-1
     .panel.panel-primary
-      .panel-heading Créer un article
+      - if current_page?(new_article_path)
+        .panel-heading Créer un article
+      - else
+        .panel-heading Modifier un article
       .panel-body
         = bootstrap_form_for(@article, multipart: true) do |f|
           %center
-            %h1 Création d'un nouvel article
+            - if current_page?(new_article_path)
+              %h1 Création d'un nouvel article
+            - else
+              %h1 Modification de l'article
           %br
           %br
           .row
@@ -21,7 +27,10 @@
               = f.text_area :content, {label: "Description", :placeholder => "Tape ton article ici...", :style => "max-width:100%; min-width:100%", :rows => "5"}
             .form-group
               .col.md-offset-10.col-md-3{:class => "pull-right"}
-                = f.submit "Publier l'article", :class => "btn btn-primary"
+                - if current_page?(new_article_path)
+                  = f.submit "Publier l'article", :class => "btn btn-primary"
+                - else
+                  = f.submit "Modifier l'article", :class => "btn btn-primary"
                 = link_to articles_path, :class=>"btn btn-default" do
                   Annuler
            

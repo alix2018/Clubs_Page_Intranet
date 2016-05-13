@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.paginate(:page => params[:page], :per_page => 15)
+    @articles_np =Article.where('is_private' => false).paginate(:page => params[:page], :per_page => 15)
   end
 
   # GET /articles/1
