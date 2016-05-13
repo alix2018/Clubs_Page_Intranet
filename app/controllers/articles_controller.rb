@@ -13,6 +13,12 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def list_private
+    @articles = Article.paginate(:page => params[:page], :per_page => 15)
+    @articles_private = current_user.articles
+    render "index"
+  end
+
   # GET /articles/new
   def new
     @article = Article.new

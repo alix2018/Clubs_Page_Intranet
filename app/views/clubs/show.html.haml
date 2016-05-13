@@ -29,7 +29,7 @@
                 
                 %br
                 %B Membres : 
-                Felix, Kévin, Constantin, Clément...
+                = @club.users.map{|user| user.name}.join(", ")
                 %br
                 %br
                 %button.btn.btn-default{:type => "button"} Nous contacter
