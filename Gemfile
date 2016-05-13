@@ -40,6 +40,8 @@ gem 'aws-sdk', '< 2.0' # http://ruby.awsblog.com/post/TxFKSK2QJE6RPZ/Upcoming-St
 gem 'fog'
 gem 'jquery-ui-rails'
 
+gem "bootstrap-switch-rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
