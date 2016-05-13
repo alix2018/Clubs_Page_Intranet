@@ -18,6 +18,8 @@
                   %th Site Web
                   %th Profil
                   %th News
+                  - if current_page?(clubs_path)
+                    %th Rejoindre
               %tbody
                 - @clubs.sort_by{|club| club.name }.each do | club |
                   %tr
@@ -31,5 +33,9 @@
                       = link_to club, :class=>"btn btn-sm btn-default" do
                         Voir le profil
                     %td
-                      %a.btn.btn-sm.btn-default{:href => clubs_path}
+                      = link_to articles_path, :class=>"btn btn-sm btn-default" do
                         Voir les news
+                    - if current_page?(clubs_path)
+                      %td
+                        = link_to clubs_path, :class=>"btn btn-sm btn-default" do
+                          Rejoindre ce club

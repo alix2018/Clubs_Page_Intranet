@@ -1,15 +1,14 @@
 .row
   .col-md-10.col-md-offset-1
     .panel.panel-primary
-      .panel-heading News des clubs
+      .panel-heading
+        %h3.panel-title Liste des articles
       .panel-body
-        .panel
-          .marge{:style => "padding:2%"}
-            .btn-group{"data-toggle" => "buttons", :style => "float:right;margin-right:0"}
-              %label.btn.btn-primary
-                %input#option1{:name => "mesclubs", :type => "radio"} Mes clubs
-              %label.btn.btn-primary.active
-                %input#option2{:name => "touslesclubs", :type => "radio"} Tous les clubs
+        %ul.nav.nav-tabs{:role => "tablist"}
+          %li{:role => "presentation", :class=>("active" if current_page?(articles_path))}
+            = link_to "Tous les clubs", articles_path
+          %li{:role => "presentation", :class=>("active" if current_page?(articles_list_private_path))}
+            = link_to "Mes clubs", articles_list_private_path 
           %br
           %br
           - @articles.each do | article |
