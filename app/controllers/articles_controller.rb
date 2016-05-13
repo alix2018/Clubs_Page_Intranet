@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.paginate(:page => params[:page], :per_page => 15)
+    @articles = Article.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
   end
 
   # GET /articles/1
@@ -29,9 +29,12 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.build(article_params)
 
     if @article.save
-      redirect_to root_path
+      redirect_to articles_path
+      flash[:notice] = "L'article a été créé. Congratulations!!!"
     else
       render :new
+      flash[:error] = "L'article n'a pas été créé."
+
     end
   end
 

@@ -26,8 +26,8 @@
                     %h3=article.title
                     .row
                       .col-xs-12
-                        %p
-                          =article.content
+                        %p{:style=> "text-align:justify"}
+                          =truncate(article.content, length: 300, separator: ' ')
                         %p.lead
                           %a
                             = link_to articles_path(article) do
@@ -35,7 +35,7 @@
                         %ul.list-inline
                           %li
                             Il y a 
-                            =time_ago_in_words(article.created_at, language:"fr")
+                            =time_ago_in_words(article.created_at)
                           %li
                             %a{:href => "#"}
         %center
