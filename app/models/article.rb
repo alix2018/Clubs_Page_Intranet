@@ -5,4 +5,5 @@ class Article < ActiveRecord::Base
   	#validates :description, length: {minimum: 200, message: "Pas assez de caractères, un petit effort ;) (Minimum 200 caractères)"}
 
 	belongs_to :club
+	belongs_to :user
 end

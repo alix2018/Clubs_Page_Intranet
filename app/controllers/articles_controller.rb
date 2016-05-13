@@ -26,9 +26,8 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
-    @article.user_id = current_user.id;
-    #todo @article.club_id = ;
+    @article = current_user.articles.build(article_params)
+
     if @article.save
       redirect_to root_path
     else
@@ -68,6 +67,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :content, :is_private, :user_id)
+      params.require(:article).permit(:title, :content, :is_private, :club_id)
     end
 end

@@ -1,4 +1,14 @@
-    class ClubsController < ApplicationController
+class ClubsController < ApplicationController
+
+  helper_method :current_club
+
+  protected
+
+  def current_club
+    @current_club ||= Club.find(params[:club_id])
+  end
+
+  public
 
   def index
     @clubs = Club.all 

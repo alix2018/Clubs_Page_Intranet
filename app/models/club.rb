@@ -2,6 +2,7 @@ class Club < ActiveRecord::Base
 	has_many :inscriptions
   has_many :publications
   has_many :invitations
+  has_many :user, through: :inscriptions
 
   validates :name, presence: {message: "Tu trouves pas qu't'as oublié quelque chose?!"}
   validates :description, presence: {message: "Tu trouves pas qu't'as oublié quelque chose?!"}
