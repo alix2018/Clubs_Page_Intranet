@@ -28,6 +28,7 @@ c1 = Club.new
 c1.name = "Drinkiit"
 c1.website = "ares-ensiie.eu"
 c1.description = "On fait à manger tout les jours"
+c1.president = "Nicolas"
 c1.save!
 
 c2 = Club.new

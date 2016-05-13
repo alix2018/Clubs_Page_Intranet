@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
   has_many :oauth_applications, class_name: 'Doorkeeper::Application', as: :owner
-
+  belongs_to :inscriptions
   phony_normalize :phone, default_country_code: 'FR'
 
   has_attached_file :avatar, styles: {

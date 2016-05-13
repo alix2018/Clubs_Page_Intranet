@@ -24,8 +24,7 @@
                           .icon-addon.addon-md
                             %select.form-control
                               %option Nom du club
-                              - @clubs.each do | club |
-                                %option{:value => club.id}=club.name
+                              - @club.name
                         .form-group
                           %label.control-label{:for => "poste"}
                             A quel poste?

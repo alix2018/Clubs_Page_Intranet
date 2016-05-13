@@ -9,19 +9,13 @@
     render "index"
   end
 
-  def subscribe
-  end
-
-  def join
-    @clubs = Club.all
-  end
-
   def new
      @club = Club.new
   end
 
   def create
     @club = Club.new(clubs_params)
+    @club.president = current_user.name;
     if @club.save
       redirect_to articles_path
       flash[:notice] = "Le club a été créé. Congratulations!!!"

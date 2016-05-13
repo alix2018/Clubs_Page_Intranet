@@ -8,21 +8,25 @@
               %center{:style => "margin-top:40%"}
                 %img.img-responsive.img-circle{:src => @club.logo.url, :style => "width:150px;height:150px"} 
                 //%img.img-responsive.center-block{:src => @club.logo.url}
-                %h1 Driinkit
+                %h1
+                  = @club.name
                 %br
-                %button.btn.btn-default{:type => "button"} Voir les news
+                = link_to clubs_join_path do #TODO
+                  %button.btn.btn-default{:type => "button"} Voir les news
           .col-md-8.col-xs-9{:style => "display:table-cell;float:none"}
             .panel.panel-default{:style => "margin-top:8%"}
               .panel-body{:style => "padding-top:0.05%"}
                 %h1 Description
                 %br
-                %p{:style => "text-align: justify"} Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim incididunt ut labore et dolore magna aliqua. Ut 
+                %p{:style => "text-align: justify"}
+                  = @club.description
             .panel.panel-default{:style => "margin-top:8%;margin-bottom:8%"}
               .panel-body{:style => "padding-top:0.05%"}
                 %h1 Informations
                 %br
                 %B Président : 
-                Nicolas
+                = @club.president
+                
                 %br
                 %B Membres : 
                 Felix, Kévin, Constantin, Clément...
@@ -30,4 +34,5 @@
                 %br
                 %button.btn.btn-default{:type => "button"} Nous contacter
                 = link_to clubs_join_path do
-                  %button.btn.btn-default{:type => "button"}Rejoindre ce club
+                  %button.btn.btn-default{:type => "button"} Rejoindre ce club
+
