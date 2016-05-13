@@ -21,5 +21,8 @@ class User < ActiveRecord::Base
   has_attached_file :cv
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-
+  
+  def is_admin_of?(club)
+    club.admins.include? self
+  end
 end

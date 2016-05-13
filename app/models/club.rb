@@ -3,6 +3,7 @@ class Club < ActiveRecord::Base
   has_many :publications
   has_many :invitations
   has_many :users, through: :inscriptions
+  has_many :admins, -> { where("inscriptions.admin" => true) }, through: :inscriptions, source: :user
 
   validates :name, presence: {message: "Tu trouves pas qu't'as oublié quelque chose?!"}
   validates :description, presence: {message: "Tu trouves pas qu't'as oublié quelque chose?!"}

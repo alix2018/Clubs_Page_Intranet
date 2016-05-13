@@ -2,6 +2,7 @@ require "net/ldap"
 class UsersController < ApplicationController
   before_action :set_user, except: ["index"]
 
+  
   def index
     @users = User.all.group_by {|user| user.promo}
     @users = @users.sort_by {|promo, list| -promo}
@@ -118,4 +119,6 @@ class UsersController < ApplicationController
     ldap.auth LDAP_CONFIG["auth_dn"], LDAP_CONFIG["auth_pass"]
     return ldap
   end
+
+
 end

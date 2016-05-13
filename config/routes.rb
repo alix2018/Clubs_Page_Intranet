@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   resources :clubs
   resources :articles
   resources :events
+  resources :articles do
+    resources :users, only: [:edit, :update, :destroy]
+  end
 
   get '/files/*path' => 'files#index', as: :files
   get '/files' => 'files#index', as: :base_files
