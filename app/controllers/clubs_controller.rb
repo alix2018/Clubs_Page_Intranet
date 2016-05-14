@@ -54,6 +54,7 @@ class ClubsController < ApplicationController
   # PATCH/PUT /clubs/1
   # PATCH/PUT /clubs/1.json
   def update
+    
     respond_to do |format|
       if @club.update(club_params)
         format.html { redirect_to @club, notice: 'Club was successfully updated.' }
@@ -84,5 +85,9 @@ class ClubsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def clubs_params
       params.require(:club).permit(:name, :website, :description, :logo)
+    end
+
+    def users_params
+      params.require(:user).permit(:name, :lastname)
     end
 end
