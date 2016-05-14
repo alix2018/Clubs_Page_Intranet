@@ -1,11 +1,17 @@
 .row
   .col-md-10.col-md-offset-1
     .panel.panel-primary
-      .panel-heading Créer un évènement
+      - if current_page?(new_event_path)
+        .panel-heading Créer un événement
+      - else
+        .panel-heading Modifier un événement
       .panel-body
         = bootstrap_form_for(@event, multipart: true) do |f|
           %center
-            %h1 Formulaire de création
+            - if current_page?(new_event_path)
+              %h1 Création d'un nouvel événement
+            - else
+              %h1 Modification de l'évènement
           %br
           %br
           .row
@@ -15,15 +21,23 @@
             .col-md-12.col-xs-12
               = f.text_field :title, {label: "Nom de l'évènement", :placeholder => "Nom de l'évènement", :type => "text"}
             .col-md-12.col-xs-12
+              = f.text_area :description, {label: "Description", :placeholder => "Tape la description de ton évènement ici...", :style => "max-width:100%; min-width:100%", :rows => "5"}
+            .col-md-12.col-xs-12
               = f.text_field :location, {label: "Lieu de l'évènement", :placeholder => "Lieu de l'évènement", :type => "text", :class => "adresse-autocomplete"}                
 
             .col-md-6.col-xs-12
               =f.text_field :date_start, {label: "Date de début de l'événement", :type => "text", :placeholder => "Date de début de l'évènement", :class => "datetimepicker"  }
             .col-md-6.col-xs-12
               =f.text_field :date_end, {label: "Date de fin de l'événement", :type => "text", :placeholder => "Date de fin de l'évènement", :class => "datetimepicker" }
-            .col-md-12
-              = f.submit "Créer un évènement", :class => "btn btn-primary pull-right", :style => "margin-top: 2%"
-
+            .form-group
+              .col.md-offset-8.col-md-4{:class => "pull-right"}
+                - if current_page?(new_event_path)
+                  = f.submit "Créer l'événement", :class => "btn btn-primary"
+                - else
+                  = f.submit "Modifier l'évènement", :class => "btn btn-primary"
+                = link_to articles_path, :class=>"btn btn-default" do
+                  Annuler
+           
 
 :javascript
   window.current_user_promo = #{current_user.promo}

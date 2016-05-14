@@ -2,6 +2,7 @@ class Club < ActiveRecord::Base
 	has_many :inscriptions
   has_many :publications
   has_many :invitations
+  has_many :events
   has_many :users, through: :inscriptions
   has_many :admins, -> { where("inscriptions.admin" => true) }, through: :inscriptions, source: :user
 
