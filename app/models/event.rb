@@ -5,7 +5,9 @@ class Event < ActiveRecord::Base
   validate :start_must_be_before_end_date
   validates :title, length: { maximum: 140 }
 
-
+  belongs_to :club
+  belongs_to :user
+  
   private
 
   def start_must_be_before_end_date
