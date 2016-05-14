@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
     default_url: "/unknown_user.png"
 
   has_many :articles
+  has_many :events  
   has_many :inscriptions
   has_many :club, through: :inscriptions
 

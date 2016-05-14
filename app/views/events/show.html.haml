@@ -14,11 +14,27 @@
             %h1=@event.title
           %br
           %p{:style => "text-align:justify;margin-bottom:30px"} 
-            Lieu:
+            Du 
+            =@event.date_start.strftime("%d %b")
+            à 
+            =@event.date_start.strftime("%H:%M") 
+            %br
+            Au
+            =@event.date_end.strftime("%d %b")
+            à 
+            =@event.date_end.strftime("%H:%M")
+            %br
+            À :
             =@event.location
+            %br
+            %br
+            %br
+            Description :
+            %br
+            =@event.description
           %i Ecrit par 
-          = @event.user.name 
-          = @event.user.lastname
+          //=@event.user.name 
+          //  =@event.user.lastname
           .publie{:style => "text-align:right;margin-top:5%;padding-bottom:2%"}
             Créé le 
             =@event.created_at.strftime("%d %b. %Y")
@@ -27,5 +43,4 @@
           .row{:style => "margin-top:5%"}
             = link_to edit_event_path(@event), :class=>"btn btn-md btn-success" do
               Modifier
-            = link_to event_path(@event), :class=>"btn btn-md btn-danger" do
-              Supprimer
+            = link_to t('.destroy', :default => t("helpers.links.destroy")), event_path(@event), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Voulez vous vraiment supprimer cet évènement ?')) }, :class => 'btn btn-danger'

@@ -33,7 +33,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
 	def create
-		@event = Event.new(events_params)
+		@event = current_user.events.build(events_params)
     
 	    if @event.save
     	 	redirect_to events_path
@@ -51,7 +51,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
-      if @event.update(event_params)
+      if @event.update(events_params)
         format.html { redirect_to @event, notice: 'event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
@@ -79,6 +79,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
 	def events_params
-    	params.require(:event).permit(:title, :date_start, :date_end)
+    	params.require(:event).permit(:title, :location, :description, :date_start, :date_end,:club_id)
   	end
 end
