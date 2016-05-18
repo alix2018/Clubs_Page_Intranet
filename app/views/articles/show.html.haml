@@ -1,32 +1,45 @@
 .row
   .col-md-10.col-md-offset-1
     .panel.panel-primary
-      .panel-body{:style => "padding:1.5%"}
-        .col-md-2.col-sm-3.text-center
-          %center
-            - if @article.club
-              %a.story-img 
-                = link_to @article.club do
-                  %img.img-responsive.img-circle{:src => @article.club.logo.url, :style => "width:110px;height:110px;margin-top:40%"}
-            %h3=@article.club.name
-        .col-md-10.col-sm-9
-          %center
-            %h1=@article.title
-          %br
-          %p{:style => "text-align:justify;margin-bottom:30px"} 
-            =@article.content
-          %i Ecrit par 
-          = @article.user.name 
-          = @article.user.lastname
-          .publie{:style => "text-align:right;margin-top:5%;padding-bottom:2%"}
-            Publié le 
-            =@article.created_at.strftime("%d %b. %Y")
-            à
-            =@article.created_at.strftime("%H:%M")
-          .row{:style => "margin-top:10px"}
-            = link_to clubs_join_path do
-              %button.btn.btn-default{:type => "button", :class =>"pull-right"} Commentaires  
-          .row{:style => "margin-top:5%"}
-            = link_to edit_article_path(@article), :class=>"btn btn-md btn-success" do
-              Modifier
-            = link_to t('.destroy', :default => t("helpers.links.destroy")), article_path(@article), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Voulez vous vraiment supprimer cet article ?')) }, :class => 'btn btn-danger'
+      .panel-heading
+      .panel-body{:style => "padding:4%"}
+        .title_article{:style => "font-size:90px;text-align:center;padding-bottom:2%"}
+          =@article.title
+        .panel.panel-default{:style => "text-align:justify;padding:0.75%"} 
+          .publier_article1{:style => "font-style:italic;font-size:15px"}
+            - if @article.updated_at == @article.created_at
+              Publié le 
+              =@article.created_at.strftime("%d %b. %Y")
+              à
+              =@article.created_at.strftime("%H:%M")
+            - elsif @article.updated_at != @article.created_at
+              .col-md-4{:style => "font-style:italic;font-size:15px;padding-left:0%"}
+                Publié le 
+                =@article.created_at.strftime("%d %b. %Y")
+                à
+                =@article.created_at.strftime("%H:%M")
+              .col-md-offset-5{:style => "font-style:italic;font-size:15px;text-align:right;padding-left:0%"}
+                Modifié le 
+                =@article.updated_at.strftime("%d %b. %Y")
+                à
+                =@article.updated_at.strftime("%H:%M")
+        .content_article{:style => "text-align:justify;margin-bottom:5%;margin-top:5%"}
+          =@article.content
+        .separtor-bar{:style => "margin-right:auto;margin-left:auto;height:1px;background-color:#428bca;width:20%;margin-bottom:5%"}
+        .logo-ecrit
+          - if @article.club
+            = link_to @article.club do
+              %img.img-responsive.img-circle{:src => @article.club.logo.url, :style => "width:60px;height:60px;display:inline-block;vertical-align:middle;"}
+          .ecrivain
+            Ecrit par
+            = @article.user.name 
+            = @article.user.lastname
+            de
+            = @article.club.name
+        .row{:style => "margin-top:60px"}
+          = link_to clubs_join_path do
+            %button.btn.btn-default{:type => "button", :class =>"pull-right"} Commentaires  
+        .row{:style => "margin-top:5%"}
+          = link_to edit_article_path(@article), :class=>"btn btn-md btn-success" do
+            Modifier
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), article_path(@article), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Voulez vous vraiment supprimer cet article ?')) }, :class => 'btn btn-danger'

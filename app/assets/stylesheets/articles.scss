@@ -2,7 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .text_area{
 	min-width:100%;
 	max-width:100%;
+}
+
+.title_article{
+	text-transform : uppercase;
+	font-family: 'capsuularegular', sans-serif;
+
+}
+
+.title_article::first-letter{
+	font-size : 105px;
+}
+
+.logo-ecrit{
+
+	width:100%;
+}
+
+.ecrivain{
+	height:15px;
+	display:inline-block;
+	vertical-align:middle;
+	margin-left:8px;
 }
