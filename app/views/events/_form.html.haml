@@ -11,7 +11,7 @@
             - if current_page?(new_event_path)
               %h1 Création d'un nouvel événement
             - else
-              %h1 Modification de l'évènement
+              %h1 Modification de l'événement
           %br
           %br
           .row
@@ -19,25 +19,25 @@
               .icon-addon.addon-md
                 = f.select :club_id, current_user.club.collect { |p| [ p.name, p.id ]}, label: "Pour quel club veux-tu publier un event" 
             .col-md-12.col-xs-12
-              = f.text_field :title, {label: "Nom de l'évènement", :placeholder => "Nom de l'évènement", :type => "text"}
+              = f.text_field :title, {label: "Nom de l'événement", :placeholder => "Nom de l'événement", :type => "text"}
             .col-md-12.col-xs-12
-              = f.text_area :description, {label: "Description", :placeholder => "Tape la description de ton évènement ici...", :style => "max-width:100%; min-width:100%", :rows => "5"}
+              = f.text_area :description, {label: "Description", :placeholder => "Tape la description de ton événement ici...", :style => "max-width:100%; min-width:100%", :rows => "5"}
             .col-md-12.col-xs-12
-              = f.text_field :location, {label: "Lieu de l'évènement", :placeholder => "Lieu de l'évènement", :type => "text", :class => "adresse-autocomplete"}                
+              = f.text_field :location, {label: "Lieu de l'événement", :placeholder => "Lieu de l'événement", :type => "text", :class => "adresse-autocomplete"}                
 
             .col-md-6.col-xs-12
-              =f.text_field :date_start, {label: "Date de début de l'événement", :type => "text", :placeholder => "Date de début de l'évènement", :class => "datetimepicker"  }
+              =f.text_field :date_start, {label: "Date de début de l'événement", :type => "text", :placeholder => "Date de début de l'événement", :class => "datetimepicker"  }
             .col-md-6.col-xs-12
-              =f.text_field :date_end, {label: "Date de fin de l'événement", :type => "text", :placeholder => "Date de fin de l'évènement", :class => "datetimepicker" }
-            .form-group
-              .col.md-offset-8.col-md-4{:class => "pull-right"}
-                - if current_page?(new_event_path)
-                  = f.submit "Créer l'événement", :class => "btn btn-primary"
-                - else
-                  = f.submit "Modifier l'évènement", :class => "btn btn-primary"
-                = link_to articles_path, :class=>"btn btn-default" do
-                  Annuler
-           
+              =f.text_field :date_end, {label: "Date de fin de l'événement", :type => "text", :placeholder => "Date de fin de l'événement", :class => "datetimepicker" }
+            .form-group{:style => "float:right;margin-right:15px"}
+              - if current_page?(new_event_path)
+                = f.submit "Créer l'événement", :class => "btn btn-primary"
+              - else
+                = f.submit "Modifier l'événement", :class => "btn btn-primary"
+              = link_to articles_path, :class=>"btn btn-default" do
+                Annuler
+          
+
 
 :javascript
   window.current_user_promo = #{current_user.promo}

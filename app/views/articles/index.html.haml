@@ -17,62 +17,66 @@
                 .panel.panel-default
                   .panel-body
                     .row
-                      .col-md-2.col-sm-3.text-center
-                        %center
-                          - if article.club
-                            = link_to article.club do
-                              %img.img-responsive.img-circle{:src => article.club.logo.url, :style => "width:110px;height:110px;margin-top:40%"}
-                      .col-md-10.col-sm-9
-                        %h3=article.title
-                        .row
-                          .col-xs-12
-                            %p{style: "text-align: justify"}
-                              =article.content
-                            %p.lead
-                              %a
-                                = link_to article, :class=>"btn btn-md btn-default" do
-                                  Lire la suite
+                      .alignement-article
+                        .col-md-2.col-sm-3
+                          .logo
+                            - if article.club
+                              = link_to article.club do
+                                %img.img-responsive.img-circle{:src => article.club.logo.url}
+                        .col-md-10.col-sm-9
+                          .block-content-article
+                            %h3=article.title
                             .row
-                              .col-md-8.col-sm-8
-                                Il y a 
-                                =time_ago_in_words(article.created_at, language:"fr")
-                              .col-md-4.col-sm-4.text-right
-                                - if article.updated_at != article.created_at
-                                  Modifié le 
-                                  =article.updated_at.strftime("%d %b. %Y")
-                                  à
-                                  =article.updated_at.strftime("%H:%M")
+                              .col-xs-12
+                                %p
+                                  =article.content
+                                %p.lead
+                                  %a
+                                    = link_to article, :class=>"btn btn-md btn-default" do
+                                      Lire la suite
+                                .row
+                                  .col-md-8.col-sm-8
+                                    Il y a 
+                                    =time_ago_in_words(article.created_at, language:"fr")
+                                  .col-md-4.col-sm-4.text-right
+                                    - if article.updated_at != article.created_at
+                                      Modifié le 
+                                      =article.updated_at.strftime("%d %b. %Y")
+                                      à
+                                      =article.updated_at.strftime("%H:%M")
           - else
             - @articles.each do | article |
               .panel.panel-default
                 .panel-body
                   .row
-                    .col-md-2.col-sm-3.text-center
-                      %center
-                        - if article.club
-                          %a.story-img 
-                            = link_to article.club do
-                              %img.img-responsive.img-circle{:src => article.club.logo.url, :style => "width:110px;height:110px;margin-top:40%"}
-                    .col-md-10.col-sm-9
-                      %h3=article.title
-                      .row
-                        .col-xs-12
-                          %p
-                            =article.content
-                          %p.lead
-                            %a
-                              = link_to article, :class=>"btn btn-md btn-default" do
-                                Lire la suite
+                    .alignement-article
+                      .col-md-2.col-sm-3.text-center
+                        .logo
+                          - if article.club
+                            %a.story-img 
+                              = link_to article.club do
+                                %img.img-responsive.img-circle{:src => article.club.logo.url}
+                      .col-md-10.col-sm-9
+                        .block-content-article
+                          %h3=article.title
                           .row
-                            .col-md-8.col-sm-8
-                              Il y a 
-                              =time_ago_in_words(article.created_at, language:"fr")
-                            .col-md-4.col-sm-4.text-right
-                              - if article.updated_at != article.created_at
-                                Modifié le 
-                                =article.updated_at.strftime("%d %b. %Y")
-                                à
-                                =article.updated_at.strftime("%H:%M")
+                            .col-xs-12
+                              %p
+                                =article.content
+                              %p.lead
+                                %a
+                                  = link_to article, :class=>"btn btn-md btn-default" do
+                                    Lire la suite
+                              .row
+                                .col-md-8.col-sm-8
+                                  Il y a 
+                                  =time_ago_in_words(article.created_at, language:"fr")
+                                .col-md-4.col-sm-4.text-right
+                                  - if article.updated_at != article.created_at
+                                    Modifié le 
+                                    =article.updated_at.strftime("%d %b. %Y")
+                                    à
+                                    =article.updated_at.strftime("%H:%M")
         %center
           = will_paginate @collection, renderer: BootstrapPagination::Rails
         / %center

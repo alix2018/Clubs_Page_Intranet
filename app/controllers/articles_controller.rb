@@ -35,12 +35,7 @@
   # POST /articles
   # POST /articles.json
   def create
-    @club = Club.find(params[:id])
-    @admin = current_user.is_admin_of?(@club)
     @article = current_user.articles.build(article_params)
-    if !@admin
-      @article.is_private = true;
-    end
     if @article.save
       redirect_to articles_path
       flash[:notice] = "L'article a été créé. Congratulations!!!"
