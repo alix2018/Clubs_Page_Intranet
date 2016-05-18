@@ -1,27 +1,27 @@
 .row
   .col-md-10.col-md-offset-1
     .panel.panel-primary
-      .panel-body{:style => "padding-bottom:0%;padding-top:0%"}
-        .row{:style => "background-color:rgba(52, 73, 105,0.1);color:black;border-radius: 4px 4px 4px 4px;"}
-          .col-md-3.col-xs-4{:style => "background-color:rgba(66,139,202,1);color:black;display:table-cell;float:none;border-radius:4px"}
+      .panel-body{:class => "panel-body-show"}
+        .row{:class => "row-show-gray"}
+          .col-md-3.col-xs-4{:class => "row-show-blue"}
             %br
-              %center{:style => "margin-top:40%"}
-                %img.img-responsive.img-circle{:src => @club.logo.url, :style => "width:150px;height:150px"} 
+              %center{:class => "margin-center"}
+                %img.img-responsive.img-circle{:src => @club.logo.url, :class => "img-circle-responsive"} 
                 //%img.img-responsive.center-block{:src => @club.logo.url}
                 %h1
                   = @club.name
                 %br
                 = link_to clubs_join_path do #TODO
                   %button.btn.btn-default{:type => "button"} Voir les news
-          .col-md-9.col-xs-8{:style => "display:table-cell;float:none"}
-            .panel.panel-default{:style => "margin-top:8%; "}
-              .panel-body{:style => "padding-top:0.05%"}
+          .col-md-9.col-xs-8{:class => "description-information-panel"}
+            .panel.panel-default{:class => "description-panel"}
+              .panel-body{:class => "panel-body-style"}
                 %h1 Description
                 %br
-                %p{:style => "text-align: justify"}
+                %p
                   = @club.description
-            .panel.panel-default{:style => "margin-top:8%;margin-bottom:8%"}
-              .panel-body{:style => "padding-top:0.05%"}
+            .panel.panel-default{:class => "information-panel"}
+              .panel-body{:class => "panel-body-style"}
                 %h1 Informations
                 %br
                 %B Président : 
@@ -32,7 +32,7 @@
                 = @club.users.map{|user| user.name}.join(", ")
                 %br
                 %br
-                %button.btn.btn-default{:type => "button"} Nous contacter
+                %button.btn.btn-default{:type => "button", :href => "mailto: @club.email"} Nous contacter
                 = link_to clubs_join_path do
                   %button.btn.btn-default{:type => "button"} Rejoindre ce club
                 %br
@@ -41,8 +41,8 @@
                 - if @admin
                   %h1 Administrer le club :
                   .col-md-12.col-xs-12
-                    .row{:style => "margin:1%"}
+                    .row{:class => "admin-button"}
                       
                      
-                      = link_to t('.destroy', :default => t("helpers.links.destroy")), club_path(@club), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Voulez vous vraiment supprimer le club?')) }, :class => 'btn btn-danger pull-right', :style => "margin:1%"
-                      = link_to 'Editer le club', edit_club_path(@club), :class=>"btn btn-md btn-success pull-right", :style => "margin:1%"
+                      = link_to t('.destroy', :default => t("helpers.links.destroy")), club_path(@club), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Voulez vous vraiment supprimer le club?')) }, :class => 'btn btn-danger pull-right', :class => "admin-button"
+                      = link_to 'Editer le club', edit_club_path(@club), :class=>"btn btn-md btn-success pull-right", :class => "admin-button"

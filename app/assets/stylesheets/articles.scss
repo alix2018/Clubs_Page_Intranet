@@ -2,7 +2,107 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.text_area{
+/*
+ *
+ * Index
+ *
+*/
+
+//Block qui contient : l'image du club et le visuel des informatiques de l'article dans la view index de articles
+.alignement-article{
+	width:100%;
+}
+
+//Gère l'image du club
+img.img-responsive.img-circle{
+	width:110px;
+	height:110px;
+	margin-top:40%;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+//Gère le visuel des informatiques de l'article dans la view index de articles
+.block-content-article{
+	display:inline-block;
+	vertical-align:middle;
+	width:100%;
+}
+
+p{
+	text-align: justify;
+}
+
+/*
+ *
+ * Article
+ * 
+ */
+
+.panel-body-article{
+	padding:1.5%;
+}
+
+.img-article{
+	width:100%;
+	padding-bottom:2%;
+}
+
+.circle-img-article{
+	width:110px;
+	height:110px;
+	margin-top:100%;
+}
+
+/*
+ *
+ * Formulaire
+ *
+ */
+
+.text-area-width{
 	min-width:100%;
 	max-width:100%;
+}
+
+/*
+ *
+ * Edit
+ *
+ */
+
+
+
+
+ /*
+ *
+ * New
+ *
+ */
+
+
+
+
+/*
+ *
+ * Show
+ *
+ */
+
+ .margin-p{
+ 	margin-bottom:30px;
+}
+
+.publie{
+	text-align:right;
+	margin-top:5%;
+	padding-bottom:2%;
+}
+
+.row.commentaires{
+	margin-top:10px;
+}
+
+.row.modifier{
+	margin-top:5%;
 }

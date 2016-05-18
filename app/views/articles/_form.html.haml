@@ -20,10 +20,10 @@
                 = f.select :club_id, current_user.club.collect { |p| [ p.name, p.id ]}, label: "Pour quel club veux-tu publier un article" 
             .col-md-6.col-xs-12
               = f.text_field :title, {label: "Quel est le titre de ton article", :placeholder => "Titre de l'article"}
-            .col-md-6.col-xs-12              
+            .col-md-6.col-xs-12
               = f.check_box :is_private, {label: "Article privé"}
-            .col-md-12
-              = f.text_area :content, {label: "Description", :placeholder => "Tape ton article ici...", :style => "max-width:100%; min-width:100%", :rows => "5"}
+            .col-md-12  
+              = f.text_area :content, {label: "Description", :placeholder => "Tape ton article ici...", :class => "text-area-width", :rows => "5"}
             .form-group
               .col.md-offset-10.col-md-3{:class => "pull-right"}
                 - if current_page?(new_article_path)
