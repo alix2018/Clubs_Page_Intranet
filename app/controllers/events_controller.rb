@@ -5,7 +5,13 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
-    @events_np =Event.where('is_private' => false).paginate(:page => params[:page], :per_page => 15)
+    @events_np = Event.where('is_private' => false).paginate(:page => params[:page], :per_page => 15)
+    @event = Event.default_scoped
+    @event = Event.between(params['date_start'], params['date_end']) if (params['date_start'] && params['date_end'])  
+    respond_to do |format|  
+      format.html # index.html.erb  
+      format.json { render :json => @events } 
+    end
   end
 
   # GET /events/1

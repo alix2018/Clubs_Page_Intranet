@@ -66,3 +66,16 @@ $(document).ready(function() {
     }
   })
 });
+
+var updateEvent;
+updateEvent = function(the_event) {
+  return $.update("/events/" + the_event.id, {
+    event: {
+      title: the_event.title,
+      starts_at: "" + the_event.start,
+      ends_at: "" + the_event.end,
+      description: the_event.description
+    }
+  });
+};
+
