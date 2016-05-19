@@ -23,7 +23,7 @@
                 =@article.updated_at.strftime("%d %b. %Y")
                 à
                 =@article.updated_at.strftime("%H:%M")
-        .content-article
+        .content-article{:class => "content-newline-enter"}
           =@article.content
         .separator-bar
         .logo

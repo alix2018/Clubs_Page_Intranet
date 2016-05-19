@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160519185008) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.string   "president"
+    t.integer  "president_id"
   end
 
   create_table "events", force: :cascade do |t|

@@ -37,5 +37,5 @@
                         Voir les news
                     - if current_page?(clubs_path)
                       %td
-                        = link_to clubs_path, :class=>"btn btn-sm btn-default" do
+                        =mail_to User.find_by_id(club.president_id).email, :subject => "".concat(current_user.name).concat(" ").concat(current_user.lastname).concat(" ").concat("aimerait rejoindre ton club").concat(" ").concat(club.name), :body => "Bonjour ".concat(club.president).concat(", \n").concat(current_user.name).concat(" ").concat(current_user.lastname).concat(" a exprimé la volonté de rejoindre ton club : ").concat(" ").concat(club.name).concat(".\n").concat("Ajouts du demandeur : \n\n\n\n"), :class=>"btn btn-sm btn-default" do
                           Rejoindre ce club

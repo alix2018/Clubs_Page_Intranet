@@ -1,12 +1,10 @@
 class ClubsController < ApplicationController
   before_action :set_club, only: [:show, :edit, :update, :destroy]
 
-  before_filter :require_user
-  #in_place_edit_for :club, :name
   # GET /clubs
   # GET /clubs.json
   def index
-    @clubs = Club.all 
+    @clubs = Club.all
   end
 
   def list_private
@@ -25,8 +23,14 @@ end
   # GET /clubs/1
   # GET /clubs/1.json
   def show
+    @users=User.all
     @club = Club.find(params[:id])
     @admin = current_user.is_admin_of?(@club)
+    #Envoi du mail de rejoindre
+    @pres_email= User.find_by_id(@club.president_id).email
+    @sujet= "".concat(@current_user.name).concat(" ").concat(@current_user.lastname).concat(" ").concat("aimerait rejoindre ton club").concat(" ").concat(@club.name)
+    @body= "Bonjour ".concat(@club.president).concat(", \n").concat(@current_user.name).concat(" ").concat(@current_user.lastname).concat(" a exprimé la volonté de rejoindre ton club : ").concat(" ").concat(@club.name).concat(".\n")\
+    .concat("Ajouts du demandeur : \n\n\n\n")
   end
 
   def article
@@ -47,6 +51,7 @@ end
   def create
     @club = Club.new(clubs_params)
     @club.president = current_user.name;
+    @club.president_id = current_user.id;
     if @club.save
       redirect_to articles_path
       flash[:notice] = "Le club a été créé. Congratulations!!!"
