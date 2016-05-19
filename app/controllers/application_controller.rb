@@ -13,4 +13,13 @@ class ApplicationController < ActionController::Base
       stored_location_for(resource) || request.referer || root_path
     end
   end
+
+  def require_user
+    unless current_user
+      store_location
+      flash[:notice] = "You must be logged in to access this page"
+      redirect_to login_path
+      return false
+    end
+  end
 end

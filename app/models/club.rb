@@ -2,10 +2,13 @@ class Club < ActiveRecord::Base
 	has_many :inscriptions
   has_many :publications
   has_many :invitations
+  belongs_to :user
+  has_many :club_members, :dependent => :destroy
   has_many :events
   has_many :users, through: :inscriptions
   has_many :admins, -> { where("inscriptions.admin" => true) }, through: :inscriptions, source: :user
-
+  def auto
+  end
   validates :name, uniqueness: {message: "Ce nom de club est déjà pris :'("}
   validates :name, presence: {message: "Tu trouves pas qu't'as oublié quelque chose?!"}
   validates :description, presence: {message: "Tu trouves pas qu't'as oublié quelque chose?!"}
