@@ -53,8 +53,7 @@ class ClubsController < ApplicationController
 
   # PATCH/PUT /clubs/1
   # PATCH/PUT /clubs/1.json
-  def update
-    
+  def update    
     respond_to do |format|
       if @club.update(club_params)
         format.html { redirect_to @club, notice: 'Club was successfully updated.' }
