@@ -6,34 +6,36 @@
       .panel-body
         %center
           %h1 État des membres
-        %br
-        %br
-        .row
-          .col-md-12.col-xs-12
-            = bootstrap_form_for(@club, multipart: true) do |f|
-              .col-md-6.col-xs-12
-                = f.text_field :name, {label: "Prénom du nouveau membre", :placeholder => "Prénom du nouveau membre"}
-              .col-md-6.col-xs-12
-                = f.text_field :website, {label: "Nom du nouveau membre", :placeholder => "Nom du nouveau membre"}
-                = f.submit "Ajouter un membre", :class => "btn btn-primary pull-right", :class => "submit"
-          .col-md-12.col-xs-12
-            .icon-addon.addon-md
-              = bootstrap_form_for(@club, multipart: true) do |f|
-                .col-md-8.col-xs-12
-                  = f.select :user_ids, @club.users.map{|user| [user.name, user.lastname] }, label: "Liste des membres"
-                .col-md-4.col-xs-12{:class =>"fonction-club"}
-                  = link_to "Détruire le membre", edit_club_path(@club), :class=>"btn btn-md btn-warning"
-          .col-md-12.col-xs-12
-            .icon-addon.addon-md
-              = bootstrap_form_for(@club, multipart: true) do |f|
-                .col-md-8.col-xs-12
-                  = f.select :user_ids, @club.users.map{|user| [user.name, user.lastname] }, label: "Promouvoir le membre au rang d'administrateur"
-                .col-md-4.col-xs-12{:class =>"fonction-club"}
-                  = link_to "Promouvoir admin", edit_club_path(@club), :class=>"btn btn-md btn-warning"
-                  .col-md-12.col-xs-12
-            .icon-addon.addon-md
-              = bootstrap_form_for(@club, multipart: true) do |f|
-                .col-md-8.col-xs-12
-                  = f.select :user_ids, @club.users.map{|user| [user.name, user.lastname] }, label: "Promouvoir le membre au rang de président"
-                .col-md-4.col-xs-12{:class =>"fonction-club"}
-                  = link_to "Promouvoir président", edit_club_path(@club), :class=>"btn btn-md btn-warning"
+%table.striped
+  %tbody
+  - @users.each do |user|
+    - if ! @club.contains_user_valide(user[:id])
+      %tr
+        %td
+          = user[:name]
+        %td
+          = user[:lastname]
+        %td.right-align
+          = link_to 'Ajouter', ajouter_membre_path(@club.id,user.where(:name :name,:lastname :lastname)), class: "btn-valider waves-effect waves-light btn"
+
+.col-md-12.col-xs-12
+  .icon-addon.addon-md
+    = bootstrap_form_for(@club, multipart: true) do |f|
+      .col-md-8.col-xs-12
+        = f.select :user_ids, @club.users.map{|user| [user.name, user.lastname] }, label: "Liste des membres"
+      .col-md-4.col-xs-12{:class =>"fonction-club"}
+        = link_to "Détruire le membre", edit_club_path(@club), :class=>"btn btn-md btn-warning"
+.col-md-12.col-xs-12
+  .icon-addon.addon-md
+    = bootstrap_form_for(@club, multipart: true) do |f|
+      .col-md-8.col-xs-12
+        = f.select :user_ids, @club.users.map{|user| [user.name, user.lastname] }, label: "Promouvoir le membre au rang d'administrateur"
+      .col-md-4.col-xs-12{:class =>"fonction-club"}
+        = link_to "Promouvoir admin", edit_club_path(@club), :class=>"btn btn-md btn-warning"
+        .col-md-12.col-xs-12
+  .icon-addon.addon-md
+    = bootstrap_form_for(@club, multipart: true) do |f|
+      .col-md-8.col-xs-12
+        = f.select :user_ids, @club.users.map{|user| [user.name, user.lastname] }, label: "Promouvoir le membre au rang de président"
+      .col-md-4.col-xs-12{:class =>"fonction-club"}
+        = link_to "Promouvoir président", edit_club_path(@club), :class=>"btn btn-md btn-warning"
