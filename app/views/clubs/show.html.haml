@@ -17,7 +17,7 @@
               .panel-body{:class => "panel-body-style"}
                 %h1 Description
                 %br
-                %p
+                %p{:class => "content-newline-enter"}
                   = @club.description
             .panel.panel-default{:class => "information-panel"}
               .panel-body{:class => "panel-body-style"}
@@ -31,8 +31,9 @@
                 = @club.users.map{|user| user.name}.join(", ")
                 %br
                 %br
-                %button.btn.btn-default{:type => "button", :href => "mailto: @club.email"} Nous contacter
-                = link_to clubs_join_path do
+                =mail_to @pres_email do
+                  %button.btn.btn-default{:type => "button"} Nous contacter
+                =mail_to @pres_email, :subject => @sujet, :body => @body do
                   %button.btn.btn-default{:type => "button"} Rejoindre ce club
                 %br
                 %br
