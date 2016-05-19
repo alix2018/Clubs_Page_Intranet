@@ -1,25 +1,81 @@
-%p#notice= notice
-%h1 Listing Events
-%table
-  %thead
-    %tr
-      %th Title
-      %th Location
-      %th Date start
-      %th Date end
-      %th Is private
-      %th User
-      %th{:colspan => "3"}
-  %tbody
-    - @events.each do |event|
-      %tr
-        %td= event.title
-        %td= event.location
-        %td= event.date_start
-        %td= event.date_end
-        %td= event.is_private
-        %td= event.user_id
-        %td= link_to 'Show', event
-        %td= link_to 'Edit', edit_event_path(event)
-        %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
+.row
+  .col-md-10.col-md-offset-1
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Evénements des clubs
+        = link_to articles_path, :class=>"btn btn-md btn-default pull-right" do
+          News
+      .panel-body
+        %ul.nav.nav-tabs{:role => "tablist"}
+          %li{:role => "presentation", :class=>("active" if current_page?(events_path))}
+            = link_to "Tous les clubs", events_path
+          %li{:role => "presentation", :class=>("active" if current_page?(events_list_private_path))}
+            = link_to "Mes clubs", events_list_private_path 
+          %br
+          %br
+          - if current_page?(events_path)
+            - @events_np.reverse_each do | event |
+              .panel.panel-default
+                .panel-body
+                  .row
+                    .alignement-article
+                      .col-md-2.col-sm-3
+                        .logo
+                          - if event.club
+                            = link_to event.club do
+                              %img.img-responsive.img-circle{:src => event.club.logo.url}
+                      .col-md-10.col-sm-9
+                        .block-content-article
+                          %h3=event.title
+                          .row
+                            .col-xs-12
+                              %p
+                                =event.description
+                              %p.lead
+                                %a
+                                  = link_to event, :class=>"btn btn-md btn-default" do
+                                    Lire la suite
+                              .row
+                                .col-md-8.col-sm-8
+                                  Il y a 
+                                  =time_ago_in_words(event.created_at, language:"fr")
+                                .col-md-4.col-sm-4.text-right
+                                  - if event.updated_at != event.created_at
+                                    Modifié le 
+                                    =event.updated_at.strftime("%d %b. %Y")
+                                    à
+                                    =event.updated_at.strftime("%H:%M")
+          - else
+            - @events.each do | event |
+              .panel.panel-default
+                .panel-body
+                  .row
+                    .alignement-article
+                      .col-md-2.col-sm-3.text-center
+                        .logo
+                          - if event.club
+                            = link_to event.club do
+                              %img.img-responsive.img-circle{:src => event.club.logo.url}
+                      .col-md-10.col-sm-9
+                        .block-content-article
+                          %h3=event.title
+                          .row
+                            .col-xs-12
+                              %p
+                                =event.description
+                              %p.lead
+                                %a
+                                  = link_to event, :class=>"btn btn-md btn-default" do
+                                    Lire la suite
+                              .row
+                                .col-md-8.col-sm-8
+                                  Il y a 
+                                  =time_ago_in_words(event.created_at, language:"fr")
+                                .col-md-4.col-sm-4.text-right
+                                  - if event.updated_at != event.created_at
+                                    Modifié le 
+                                    =event.updated_at.strftime("%d %b. %Y")
+                                    à
+                                    =event.updated_at.strftime("%H:%M")
+        %center
+          = will_paginate @collection, renderer: BootstrapPagination::Rails

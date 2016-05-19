@@ -1,11 +1,21 @@
 require "net/ldap"
 class UsersController < ApplicationController
   before_action :set_user, except: ["index"]
+  before_filter :require_user 
 
   
   def index
     @users = User.all.group_by {|user| user.promo}
     @users = @users.sort_by {|promo, list| -promo}
+  end
+
+  def list
+    @query = params[:user_query]
+    @users = User.find :all, :conditions => ['username LIKE ? OR lastname LIKE ?', "%#{@query}%", "%#{@query}%"]
+    respond_to do |format|
+      format.html
+      format.js { render :partial => 'list', :layout => false }
+    end
   end
 
   def edit

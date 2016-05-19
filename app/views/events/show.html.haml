@@ -23,6 +23,19 @@
                 =@event.updated_at.strftime("%d %b. %Y")
                 à
                 =@event.updated_at.strftime("%H:%M")
+        .lieu{:style => "text-align:justify;margin-bottom:30px"} 
+          Du 
+          =@event.date_start.strftime("%d %b")
+          à 
+          =@event.date_start.strftime("%H:%M") 
+          %br
+          Au
+          =@event.date_end.strftime("%d %b")
+          à 
+          =@event.date_end.strftime("%H:%M")
+          %br
+          À :
+          =@event.location
         .content-article
           =@event.description
         .separator-bar

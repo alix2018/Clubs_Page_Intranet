@@ -1,8 +1,6 @@
 class ClubsController < ApplicationController
   before_action :set_club, only: [:show, :edit, :update, :destroy]
 
-  #Variable email admin:
-
   # GET /clubs
   # GET /clubs.json
   def index
@@ -14,6 +12,14 @@ class ClubsController < ApplicationController
     render "index"
   end
 
+def list
+  @query = params[:user_query]
+  @users = User.find :all, :conditions => ['username LIKE ? OR lastname LIKE ?', "%#{@query}%", "%#{@query}%"]
+  respond_to do |format|
+    format.html
+    format.js { render :partial => 'list', :layout => false }
+  end
+end
   # GET /clubs/1
   # GET /clubs/1.json
   def show
@@ -37,8 +43,9 @@ class ClubsController < ApplicationController
 
   # GET /clubs/1/edit
   def edit
+    @users= User.all.where.not(id: current_user.id)
+    @club = Club.find(params[:id]);
   end
-
   # POST /clubs
   # POST /clubs.json
   def create
@@ -62,8 +69,7 @@ class ClubsController < ApplicationController
 
   # PATCH/PUT /clubs/1
   # PATCH/PUT /clubs/1.json
-  def update
-    
+  def update    
     respond_to do |format|
       if @club.update(club_params)
         format.html { redirect_to @club, notice: 'Club was successfully updated.' }
@@ -96,7 +102,4 @@ class ClubsController < ApplicationController
       params.require(:club).permit(:name, :website, :description, :logo)
     end
 
-    def users_params
-      params.require(:user).permit(:name, :lastname)
-    end
 end

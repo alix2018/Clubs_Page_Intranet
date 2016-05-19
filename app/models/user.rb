@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   has_many :articles
   has_many :events  
   has_many :inscriptions
+  has_many :club_members
+  has_many :clubs
   has_many :club, through: :inscriptions
 
 
@@ -26,4 +28,5 @@ class User < ActiveRecord::Base
   def is_admin_of?(club)
     club.admins.include? self
   end
+
 end

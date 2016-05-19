@@ -27,14 +27,18 @@ u2.save!
 c1 = Club.new
 c1.name = "Drinkiit"
 c1.website = "ares-ensiie.eu"
-c1.description = "On fait à manger tout les jours"
+c1.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec lacus eu nulla tempor vestibulum. Vestibulum id diam tincidunt, ultricies nisi eget, congue risus. Sed hendrerit mauris in leo faucibus, quis congue nisl tempor. Quisque orci quam, tristique in augue vel, sollicitudin ultricies metus. Vivamus at mauris rhoncus, auctor est at, dapibus augue. Phasellus eu sapien tempus, dapibus nibh a, placerat dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin quis lacus ante.
+
+Duis maximus maximus convallis. Aenean metus augue, venenatis hendrerit efficitur eu, volutpat vel lacus. Mauris suscipit lorem quis mi hendrerit viverra. Vestibulum sem ipsum, viverra sed facilisis eget, bibendum sit amet ligula. Suspendisse potenti. Vivamus accumsan, purus non lacinia feugiat, nisl augue gravida est, in ultrices orci odio a elit. Suspendisse at tortor molestie, aliquam nisi sit amet, feugiat quam."
 c1.president = "Nicolas"
 c1.save!
 
 c2 = Club.new
 c2.name = "BDS"
 c2.website = "ares-ensiie1.eu"
-c2.description = "On fait du sport tout les jours"
+c2.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec lacus eu nulla tempor vestibulum. Vestibulum id diam tincidunt, ultricies nisi eget, congue risus. Sed hendrerit mauris in leo faucibus, quis congue nisl tempor. Quisque orci quam, tristique in augue vel, sollicitudin ultricies metus. Vivamus at mauris rhoncus, auctor est at, dapibus augue. Phasellus eu sapien tempus, dapibus nibh a, placerat dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin quis lacus ante.
+
+Duis maximus maximus convallis. Aenean metus augue, venenatis hendrerit efficitur eu, volutpat vel lacus. Mauris suscipit lorem quis mi hendrerit viverra. Vestibulum sem ipsum, viverra sed facilisis eget, bibendum sit amet ligula. Suspendisse potenti. Vivamus accumsan, purus non lacinia feugiat, nisl augue gravida est, in ultrices orci odio a elit. Suspendisse at tortor molestie, aliquam nisi sit amet, feugiat quam."
 c2.save!
 
 i1=Inscription.new
@@ -55,14 +59,18 @@ i2.save!
 
 a1 = Article.new
 a1.title = "Barbecue"
-a1.content = "Saucisse à 1€, boisson à 0.60€"
+a1.content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec lacus eu nulla tempor vestibulum. Vestibulum id diam tincidunt, ultricies nisi eget, congue risus. Sed hendrerit mauris in leo faucibus, quis congue nisl tempor. Quisque orci quam, tristique in augue vel, sollicitudin ultricies metus. Vivamus at mauris rhoncus, auctor est at, dapibus augue. Phasellus eu sapien tempus, dapibus nibh a, placerat dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin quis lacus ante.
+
+Duis maximus maximus convallis. Aenean metus augue, venenatis hendrerit efficitur eu, volutpat vel lacus. Mauris suscipit lorem quis mi hendrerit viverra. Vestibulum sem ipsum, viverra sed facilisis eget, bibendum sit amet ligula. Suspendisse potenti. Vivamus accumsan, purus non lacinia feugiat, nisl augue gravida est, in ultrices orci odio a elit. Suspendisse at tortor molestie, aliquam nisi sit amet, feugiat quam."
 a1.is_private = false
 a1.club = c1
 a1.save!
 
 a2 = Article.new
 a2.title = "Barbecue_private"
-a2.content = "Saucisse à 1€, boisson à 0.60€"
+a2.content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec lacus eu nulla tempor vestibulum. Vestibulum id diam tincidunt, ultricies nisi eget, congue risus. Sed hendrerit mauris in leo faucibus, quis congue nisl tempor. Quisque orci quam, tristique in augue vel, sollicitudin ultricies metus. Vivamus at mauris rhoncus, auctor est at, dapibus augue. Phasellus eu sapien tempus, dapibus nibh a, placerat dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin quis lacus ante.
+
+Duis maximus maximus convallis. Aenean metus augue, venenatis hendrerit efficitur eu, volutpat vel lacus. Mauris suscipit lorem quis mi hendrerit viverra. Vestibulum sem ipsum, viverra sed facilisis eget, bibendum sit amet ligula. Suspendisse potenti. Vivamus accumsan, purus non lacinia feugiat, nisl augue gravida est, in ultrices orci odio a elit. Suspendisse at tortor molestie, aliquam nisi sit amet, feugiat quam."
 a2.is_private = true
 a2.club = c2
 a2.save!
