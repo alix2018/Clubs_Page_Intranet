@@ -29,6 +29,7 @@ class ClubsController < ApplicationController
 
   # GET /clubs/1/edit
   def edit
+    @users = User.all.where.not(id: current_user.id)
   end
 
   # POST /clubs
