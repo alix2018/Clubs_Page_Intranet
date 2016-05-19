@@ -3,16 +3,16 @@
     .panel.panel-primary
       .panel-body{:class => "panel-body-show"}
         .row{:class => "row-show-gray"}
-          .col-md-3.col-xs-4{:class => "row-show-blue"}
+          .col-md-5.col-xs-5{:class => "row-show-blue"}
             %br
               %center{:class => "margin-center"}
-                %img.img-responsive.img-circle{:src => @club.logo.url, :class => "img-circle-responsive"}
+                %img.img-responsive.img-circle{:src => @club.logo.url, :class => "img-profil"}
                 %h1
                   = @club.name
                 %br
                 = link_to clubs_join_path do #TODO
                   %button.btn.btn-default{:type => "button"} Voir les news
-          .col-md-9.col-xs-8{:class => "description-information-panel"}
+          .col-md-7.col-xs-7{:class => "description-information-panel"}
             .panel.panel-default{:class => "description-panel"}
               .panel-body{:class => "panel-body-style"}
                 %h1 Description

@@ -62,7 +62,7 @@ p{
 }
 
 .panel-body-style{
-	padding-top:0.05%;
+	padding-top:0px;
 }
 
 .row-show-gray{
@@ -78,12 +78,13 @@ p{
 	float:none;
 	border-radius:4px;
 }
+
 .margin-center{
 	display:inline-block;
 	vertical-align:middle;
 }
 
-img.img-responsive.img-circle.img-circle-responsive{
+img.img-responsive.img-circle.img-profil{
 	display:inline-block;
 	vertical-align:middle;
 	width:150px;
@@ -96,12 +97,12 @@ img.img-responsive.img-circle.img-circle-responsive{
 }
 
 .description-panel{
-	margin-top:8%;
+	margin-top:50px;
 }
 
 .information-panel{
-	margin-top:8%;
-	margin-bottom:8%;
+	margin-top:50px;
+	margin-bottom:50px;
 }
 
 .admin-button{
