@@ -5,8 +5,10 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
+    @events_private = current_user.events
     @events_np =Event.where('is_private' => false).paginate(:page => params[:page], :per_page => 15)
-  end
+  
+end
 
   # GET /events/1
   # GET /events/1.json

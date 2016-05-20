@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20160519163333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,16 +27,6 @@
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
-
-  create_table "club_members", force: :cascade do |t|
-    t.integer  "club_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "club_members", ["club_id"], name: "index_club_members_on_club_id", using: :btree
-  add_index "club_members", ["user_id"], name: "index_club_members_on_user_id", using: :btree
 
   create_table "clubs", force: :cascade do |t|
     t.string   "name"
@@ -165,7 +156,5 @@
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "articles", "users"
-  add_foreign_key "club_members", "clubs"
-  add_foreign_key "club_members", "users"
   add_foreign_key "events", "users"
 end
