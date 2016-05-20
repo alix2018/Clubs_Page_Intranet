@@ -16,4 +16,6 @@ class Event < ActiveRecord::Base
         date_start < date_end
     end
   end
+
+
 end

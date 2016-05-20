@@ -20,6 +20,8 @@
                 = f.select :club_id, current_user.club.collect { |p| [ p.name, p.id ]}, label: "Pour quel club veux-tu publier un event" 
             .col-md-12.col-xs-12
               = f.text_field :title, {label: "Nom de l'événement", :placeholder => "Nom de l'événement", :type => "text"}
+            .col-md-6.col-xs-12
+              = f.check_box :is_private, {label: "Article privé"}
             .col-md-12.col-xs-12
               = f.text_area :description, {label: "Description", :placeholder => "Tape la description de ton événement ici...", :style => "max-width:100%; min-width:100%", :rows => "5"}
             .col-md-12.col-xs-12

@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   post '/clubs/adduser' => 'clubs#add_user', as: :club_user_add
   delete '/clubs/elim_user' =>'clubs#elim_user',as: :club_user_del
   get 'clubs/add_user' => 'clubs#add_member', as: :club_member_add
+  get '/events/calendar/public' => 'events#calendar_public'
+  
   resources :clubs
   resources :articles
   resources :events

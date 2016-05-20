@@ -63,6 +63,15 @@ end
     end
   end
 
+  def calendar_public
+    events = Event.all
+    result = []
+    events.each do | e|
+      result.push({title: e.title, start: e.date_start, end: e.date_end})
+    end
+    render json: result
+
+  end
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
@@ -82,5 +91,7 @@ end
     # Never trust parameters from the scary internet, only allow the white list through.
 	def events_params
     	params.require(:event).permit(:title, :location, :description, :date_start, :date_end,:club_id)
-  	end
+  end
+
+
 end
