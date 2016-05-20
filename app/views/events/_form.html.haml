@@ -23,7 +23,7 @@
             .col-md-6.col-xs-12
               = f.check_box :is_private, {checked: true, label: "Événement privé"}
             .col-md-12.col-xs-12
-              = f.text_area :description, {label: "Description", :placeholder => "Tape la description de ton événement ici...", :style => "max-width:100%; min-width:100%", :rows => "5"}
+              = f.text_area :description, {label: "Description", :placeholder => "Tape la description de ton événement ici...", :class => "text-area-event", :rows => "5"}
             .col-md-12.col-xs-12
               = f.text_field :location, {label: "Lieu de l'événement", :placeholder => "Lieu de l'événement", :type => "text", :class => "adresse-autocomplete"}                
 
@@ -31,7 +31,7 @@
               =f.text_field :date_start, {label: "Date de début de l'événement", :type => "text", :placeholder => "Date de début de l'événement", :class => "datetimepicker"  }
             .col-md-6.col-xs-12
               =f.text_field :date_end, {label: "Date de fin de l'événement", :type => "text", :placeholder => "Date de fin de l'événement", :class => "datetimepicker" }
-            .form-group{:style => "float:right;margin-right:15px"}
+            .form-group{:class => "form-event-button"}
               - if current_page?(new_event_path)
                 = f.submit "Créer l'événement", :class => "btn btn-primary"
               - else
