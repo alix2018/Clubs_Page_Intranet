@@ -4,10 +4,10 @@
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.paginate(:page => params[:page], :per_page => 2).order("created_at desc")
+    @articles = Article.paginate(:page => params[:page], :per_page => 15).order("created_at desc")
     @articles_private = current_user.articles
     @articles_np = Article.where('is_private' => false).paginate(:page => params[:page], :per_page => 15)
-    @events = Event.paginate(:page => params[:page], :per_page => 10).order("created_at desc")
+    @events = Event.paginate(:page => params[:page], :per_page => 15).order("created_at desc")
     @events_np =Event.where('is_private' => false).paginate(:page => params[:page], :per_page => 15)
   end
 

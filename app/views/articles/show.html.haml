@@ -36,9 +36,6 @@
             = @article.user.lastname
             de
             = @article.club.name
-        .row{:class => "commentaires"}
-          = link_to clubs_join_path do
-            %button.btn.btn-default{:type => "button", :class =>"pull-right"} Commentaires  
         .row{:class => "modifier"}
           = link_to edit_article_path(@article), :class=>"btn btn-md btn-success" do
             Modifier

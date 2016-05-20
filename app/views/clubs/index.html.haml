@@ -18,6 +18,8 @@
                   %th Site Web
                   %th Profil
                   %th News
+                  - if current_page?(clubs_path)
+                    %th Rejoindre
               %tbody
                 - @clubs.sort_by{|club| club.name }.each do | club |
                   %tr
