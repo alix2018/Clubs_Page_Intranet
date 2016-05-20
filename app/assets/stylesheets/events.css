@@ -1,0 +1,27 @@
+
+/*
+ *
+ * Show
+ *
+ */
+
+.show-event-date{
+	text-align:justify;
+	margin-bottom:30px;
+}
+
+/*
+ *
+ * Formulaire
+ *
+ */
+
+.text-area-event{
+ 	max-width:100%; 
+ 	min-width:100%;
+ }
+
+ .form-event-button{
+ 	float:right;
+ 	margin-right:15px;
+ }

@@ -23,7 +23,7 @@
                 =@event.updated_at.strftime("%d %b. %Y")
                 à
                 =@event.updated_at.strftime("%H:%M")
-        .lieu{:style => "text-align:justify;margin-bottom:30px"} 
+        .lieu{:class => "show-event-date"} 
           Du 
           =@event.date_start.strftime("%d %b")
           à 
