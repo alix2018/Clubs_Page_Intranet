@@ -34,6 +34,8 @@
                 = f.submit "Créer le club", :class => "btn btn-primary"
               - else
                 = f.submit "Modifier le club", :class => "btn btn-primary"
+              = link_to articles_path, :class=>"btn btn-default" do
+                Annuler
 
 :javascript
   window.current_user_promo = #{current_user.promo}
