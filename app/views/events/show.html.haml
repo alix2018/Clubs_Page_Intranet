@@ -48,10 +48,7 @@
             = @event.user.name 
             = @event.user.lastname
             de
-            = @event.club.name
-        .row{:class => "commentaires"}
-          = link_to clubs_join_path do
-            %button.btn.btn-default{:type => "button", :class =>"pull-right"} Commentaires  
+            = @event.club.name 
         .row{:class => "modifier"}
           = link_to edit_event_path(@event), :class=>"btn btn-md btn-success" do
             Modifier
