@@ -21,16 +21,20 @@ class Event < ActiveRecord::Base
 
   #Permet d'éviter à un membre de créer un événement antérieure à la date et heure actuelle
   def start_must_be_before_actual_time
-    if date_start <= Time.now.strftime("%Y-%m-%d %H:%M")
-      errors.add(:date_start, "Tu as saisi une date antérieure à la date actuelle") unless
-        date_start >= Time.now.strftime("%Y-%m-%d %H:%M")
+    if date_start
+      if date_start <= Time.now.strftime("%Y-%m-%d %H:%M") && date_start !=nil
+        errors.add(:date_start, "Tu as saisi une date antérieure à la date actuelle") unless
+          date_start >= Time.now.strftime("%Y-%m-%d %H:%M")
+      end
     end
   end
 
   def end_must_be_before_actual_time
-    if date_end <= Time.now.strftime("%Y-%m-%d %H:%M")
-      errors.add(:date_end, "Tu as saisi une date antérieure à la date actuelle") unless
-        date_end >= Time.now.strftime("%Y-%m-%d %H:%M")
+    if date_end
+      if date_end <= Time.now.strftime("%Y-%m-%d %H:%M")
+        errors.add(:date_end, "Tu as saisi une date antérieure à la date actuelle") unless
+          date_end >= Time.now.strftime("%Y-%m-%d %H:%M")
+      end
     end
   end
 end

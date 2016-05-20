@@ -64,7 +64,7 @@ end
   end
 
   def calendar_public
-    events = Event.all
+    events = Event.where(is_private: false)
     result = []
     events.each do | e|
       result.push({title: e.title, start: e.date_start, end: e.date_end})
@@ -90,7 +90,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
 	def events_params
-    	params.require(:event).permit(:title, :location, :description, :date_start, :date_end,:club_id)
+    	params.require(:event).permit(:title, :location,:is_private, :description, :date_start, :date_end,:club_id)
   end
 
 
