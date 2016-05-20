@@ -5,14 +5,11 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
-    @events_np = Event.where('is_private' => false).paginate(:page => params[:page], :per_page => 15)
-    @event = Event.default_scoped
-    @event = Event.between(params['date_start'], params['date_end']) if (params['date_start'] && params['date_end'])  
-    respond_to do |format|  
-      format.html # index.html.erb  
-      format.json { render :json => @events } 
-    end
-  end
+    @events_private = current_user.events
+    @events_np =Event.where('is_private' => false).paginate(:page => params[:page], :per_page => 15)
+  
+end
+
 
   # GET /events/1
   # GET /events/1.json
@@ -67,6 +64,15 @@ class EventsController < ApplicationController
     end
   end
 
+  def calendar_public
+    events = Event.all
+    result = []
+    events.each do | e|
+      result.push({title: e.title, start: e.date_start, end: e.date_end})
+    end
+    render json: result
+
+  end
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
@@ -86,5 +92,7 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
 	def events_params
     	params.require(:event).permit(:title, :location, :description, :date_start, :date_end,:club_id)
-  	end
+  end
+
+
 end

@@ -48,7 +48,7 @@ $(document).ready(function() {
   $('#calendar').fullCalendar('addEventSource', {googleCalendarId: k["bde"], color: cal_color["bde"]}) // on ajoute le calendrier BDE dans tous les cas au calendrier
   $(".bde").toggleClass("btn-success")  // on change la couleur du bouton
 
-  $('#calendar').fullCalendar('addEventSource', {googleCalendarId: k["clubs"], color: cal_color["clubs"]}) // on ajoute le calendrier des clubs dans tous les cas au calendrier
+  $('#calendar').fullCalendar('addEventSource',{url:"/events/calendar/public", color: cal_color["clubs"]}) // on ajoute le calendrier des clubs dans tous les cas au calendrier
   $(".clubs").toggleClass("btn-success")  // on change la couleur du bouton
 
 
@@ -57,25 +57,22 @@ $(document).ready(function() {
     calendar_id = k[calendar_name]  // identifiant google du calendrier
     if ($(this).hasClass("calendar-button")){ //si c'est un bouton de choix de calendrier
       if ($(this).hasClass("btn-success")){ // si la source est déja affichée
-        $('#calendar').fullCalendar('removeEventSource', calendar_id) // retire une source de calendrier
+        if($(this).is(".clubs")){
+           $('#calendar').fullCalendar('removeEventSource',"/events/calendar/public")
+        }
+        else{
+          $('#calendar').fullCalendar('removeEventSource', calendar_id) // retire une source de calendrier
+        }
       }
       else{ //si la source n'est pas déjà affichée
-        $('#calendar').fullCalendar('addEventSource', {googleCalendarId: calendar_id, color: cal_color[calendar_name]})  // ajoute une source de calendrier
+        if($(this).is(".clubs")){
+          $('#calendar').fullCalendar('addEventSource',{url:"/events/calendar/public", color: cal_color["clubs"]})
+        }
+        else{
+          $('#calendar').fullCalendar('addEventSource', {googleCalendarId: calendar_id, color: cal_color[calendar_name]})  // ajoute une source de calendrier
+        }
       }
       $(this).toggleClass("btn-success")  // On permute la classe du bouton ici
     }
   })
 });
-
-var updateEvent;
-updateEvent = function(the_event) {
-  return $.update("/events/" + the_event.id, {
-    event: {
-      title: the_event.title,
-      starts_at: "" + the_event.start,
-      ends_at: "" + the_event.end,
-      description: the_event.description
-    }
-  });
-};
-

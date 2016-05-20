@@ -102,4 +102,5 @@ end
       params.require(:club).permit(:name, :website, :description, :logo)
     end
 
+
 end

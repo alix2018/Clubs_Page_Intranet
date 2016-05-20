@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   #get '/clubs/:id' => 'clubs#profile', as: :clubs_profile
   get '/articles/article' => 'articles#article', as: :clubs_article
   get 'clubs/ajouter_membre/:id/:id' => 'clubs#ajouter_membre', as: "ajouter_membre"
-
+  get '/events/calendar/public' => 'events#calendar_public'
   
   resources :clubs
   resources :articles
