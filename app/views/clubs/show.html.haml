@@ -9,14 +9,10 @@
                 %img.img-responsive.img-circle{:src => @club.logo.url, :class => "img-profil"}
                 %h1
                   = @club.name
-                %br
-                = link_to clubs_join_path do #TODO
-                  %button.btn.btn-default{:type => "button"} Voir les news
           .col-md-9.col-xs-8{:class => "description-information-panel"}
             .panel.panel-default{:class => "description-panel"}
               .panel-body{:class => "panel-body-style"}
                 %h1 Description
-                %br
                 %p{:class => "content-newline-enter"}
                   = @club.description
             .panel.panel-default{:class => "information-panel"}
@@ -37,12 +33,13 @@
                   %button.btn.btn-default{:type => "button"} Rejoindre ce club
                 %br
                 %br
-                %br
                 - if @admin
                   %h1 Administrer le club :
-                  .col-md-12.col-xs-12
-                    .row{:class => "admin-button"}                     
-                      = link_to t('.destroy', :default => t("helpers.links.destroy")), club_path(@club), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Voulez vous vraiment supprimer le club?')) }, :class => 'btn btn-danger pull-right', :class => "admin-button"
-                      = link_to 'Editer le club', edit_club_path(@club), :class=>"btn btn-md btn-success pull-right", :class => "admin-button"
-                  = link_to club_member_add_url , :class=>"btn btn-sm btn-default" do
-                    Gestion du club
+                  .row
+                    .boutons_profil
+                      = link_to club_member_add_url , :class=>"btn btn-md btn-default" do
+                        Gérer les membres
+                      = link_to edit_club_path(@club), :class=>"btn btn-md btn-success" do
+                        Modifier le profil
+                      = link_to t('.destroy', :default => t("helpers.links.destroy")), club_path(@club), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Voulez vous vraiment supprimer cet article ?')) }, :class => 'btn btn-danger'
+
