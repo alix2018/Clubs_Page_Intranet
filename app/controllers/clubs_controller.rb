@@ -45,6 +45,32 @@ class ClubsController < ApplicationController
   #  @inscription.delete(@inscriptionsearch)
   #end
   
+  def promuser
+    if Inscription.all.where(user_id: current_user)
+      @current = Inscription.all.where(user_id: current_user).where(club_id: "club_id").first
+      @current.admin = true
+    else 
+      @inscription = Inscription.new
+      @inscription.club_id = params["club_id"]
+      @inscription.user_id = params["user_id"]
+      @inscription.admin = true
+      @inscription.save
+      redirect_to articles_path
+    end
+    redirect_to articles_path
+  end
+
+    def prompres
+      @inscription = Club.where(id: club_id)
+      @inscription.president = params["nom"]
+      @inscription.president_id = params["user_id"]
+      @inscription.admin = true
+      @inscription.save
+      redirect_to articles_path
+      redirect_to articles_path
+  end
+
+
   # GET /clubs/new
   def new
     @club = Club.new
@@ -109,7 +135,6 @@ class ClubsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clubs_params
-      params.require(:club).permit(:name, :website, :description, :logo)
+      params.require(:club).permit(:name, :website, :description, :logo )
     end  
-
-end
+  end

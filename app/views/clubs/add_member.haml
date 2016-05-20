@@ -7,3 +7,14 @@
 /  = select_tag "club_id", options_from_collection_for_select(Club.all, "id", "name"), include_blank: true
 /  = select_tag "user_id", options_from_collection_for_select(User.all, "id", "name"), include_blank: true
 /  = submit_tag
+
+= form_tag(club_user_prom_path, method: "post") do
+  = select_tag "club_id", options_from_collection_for_select(Club.all, "id", "name"), include_blank: true
+  = select_tag "user_id", options_from_collection_for_select(User.all, "id", "name"), include_blank: true
+  = submit_tag
+
+= form_tag(club_user_pres_path, method: "post") do
+  = select_tag "club_id", options_from_collection_for_select(Club.all, "id", "name"), include_blank: true
+  = select_tag "user_id", options_from_collection_for_select(User.all, "id", "name"), include_blank: true
+  = select_tag "nom", options_from_collection_for_select(User.all, "name", "name"), include_blank: true
+  = submit_tag
