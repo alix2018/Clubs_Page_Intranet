@@ -11,15 +11,6 @@ class ClubsController < ApplicationController
     @clubs = Club.joins(:inscriptions).where("inscriptions.user_id" => current_user.id)
     render "index"
   end
-
-def list
-  @query = params[:user_query]
-  @users = User.find :all, :conditions => ['username LIKE ? OR lastname LIKE ?', "%#{@query}%", "%#{@query}%"]
-  respond_to do |format|
-    format.html
-    format.js { render :partial => 'list', :layout => false }
-  end
-end
   # GET /clubs/1
   # GET /clubs/1.json
   def show
@@ -36,6 +27,24 @@ end
   def article
   end
 
+  def add_member
+  end
+
+  def add_user
+    @inscription = Inscription.new
+    @inscription.club_id = params["club_id"];
+    @inscription.user_id = params["user_id"];
+    @inscription.admin = false;
+    @inscription.save
+    redirect_to articles_path
+  end
+
+  #def elim_user
+  #  @inscriptionsearch=Inscription.find(user_id: params["user_id"]).where(club_id: params["club_id"]).ids
+  #  @inscription=Article.find(params[:id]); 
+  #  @inscription.delete(@inscriptionsearch)
+  #end
+  
   # GET /clubs/new
   def new
     @club = Club.new
@@ -91,6 +100,7 @@ end
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_club
@@ -100,7 +110,6 @@ end
     # Never trust parameters from the scary internet, only allow the white list through.
     def clubs_params
       params.require(:club).permit(:name, :website, :description, :logo)
-    end
-
+    end  
 
 end

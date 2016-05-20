@@ -20,8 +20,6 @@ Rails.application.routes.draw do
       get '/me' => 'api#me'
     end
   end
-  resources :users, :collection => { :list => :get }
-  resources :clubs, :has_many => [:club_members], :collection => { :list => :get }
 
   get '/calendar' => 'calendar#index', as: :calendar
 
@@ -34,7 +32,9 @@ Rails.application.routes.draw do
   get '/clubs/join' => 'clubs#join', as: :clubs_join
   #get '/clubs/:id' => 'clubs#profile', as: :clubs_profile
   get '/articles/article' => 'articles#article', as: :clubs_article
-  get 'clubs/ajouter_membre/:id/:id' => 'clubs#ajouter_membre', as: "ajouter_membre"
+  post '/clubs/adduser' => 'clubs#add_user', as: :club_user_add
+  delete '/clubs/elim_user' =>'clubs#elim_user',as: :club_user_del
+  get 'clubs/add_user' => 'clubs#add_member', as: :club_member_add
   get '/events/calendar/public' => 'events#calendar_public'
   
   resources :clubs
