@@ -1,20 +1,37 @@
-= form_tag(club_user_add_path, method: "post") do
-  = select_tag "club_id", options_from_collection_for_select(Club.all, "id", "name"), include_blank: true
-  = select_tag "user_id", options_from_collection_for_select(User.all, "id", "name"), include_blank: true
-  = submit_tag
+.row
+  .col-md-10.col-md-offset-1
+    .panel.panel-primary
+      .panel-heading Modifications
+      .panel-body
+        %center
+          %h1 Gestion d'un club
+        = form_tag(club_user_add_path, method: "post") do
+          .row
+            .col-md-12
+              Ajouter un membre :
+              %br
+              = select_tag "club_id", options_from_collection_for_select(Club.all, "id", "name"), include_blank: true
+              = select_tag "user_id", options_from_collection_for_select(User.all, "id", "name"), include_blank: true
+              = submit_tag
 
-/= form_tag(club_user_del_path, method: "delete") do
-/  = select_tag "club_id", options_from_collection_for_select(Club.all, "id", "name"), include_blank: true
-/  = select_tag "user_id", options_from_collection_for_select(User.all, "id", "name"), include_blank: true
-/  = submit_tag
-
-= form_tag(club_user_prom_path, method: "post") do
-  = select_tag "club_id", options_from_collection_for_select(Club.all, "id", "name"), include_blank: true
-  = select_tag "user_id", options_from_collection_for_select(User.all, "id", "name"), include_blank: true
-  = submit_tag
-
-= form_tag(club_user_pres_path, method: "post") do
-  = select_tag "club_id", options_from_collection_for_select(Club.all, "id", "name"), include_blank: true
-  = select_tag "user_id", options_from_collection_for_select(User.all, "id", "name"), include_blank: true
-  = select_tag "nom", options_from_collection_for_select(User.all, "name", "name"), include_blank: true
-  = submit_tag
+          /= form_tag(club_user_del_path, method: "delete") do
+          /  = select_tag "club_id", options_from_collection_for_select(Club.all, "id", "name"), include_blank: true
+          /  = select_tag "user_id", options_from_collection_for_select(User.all, "id", "name"), include_blank: true
+          /  = submit_tag
+          .row
+            .col-md-12
+              Promouvoir un membre :
+              %br
+              = form_tag(club_user_prom_path, method: "post") do
+                = select_tag "club_id", options_from_collection_for_select(Club.all, "id", "name"), include_blank: true
+                = select_tag "user_id", options_from_collection_for_select(User.all, "id", "name"), include_blank: true
+                = submit_tag
+          .row
+            .col-md-12
+              Promouvoir en tant que président : 
+              %br
+              = form_tag(club_user_pres_path, method: "post") do
+                = select_tag "club_id", options_from_collection_for_select(Club.all, "id", "name"), include_blank: true
+                = select_tag "user_id", options_from_collection_for_select(User.all, "id", "name"), include_blank: true
+                = select_tag "nom", options_from_collection_for_select(User.all, "name", "name"), include_blank: true
+                = submit_tag
