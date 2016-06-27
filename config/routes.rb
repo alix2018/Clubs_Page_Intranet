@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   #get '/clubs/:id' => 'clubs#profile', as: :clubs_profile
   get '/articles/article' => 'articles#article', as: :clubs_article
   post '/clubs/adduser' => 'clubs#add_user', as: :club_user_add
-  #delete '/clubs/elim_user' =>'clubs#elim_user',as: :club_user_del
+  delete '/clubs/elim_user' =>'clubs#elim_user',as: :club_user_del
   get 'clubs/add_user' => 'clubs#add_member', as: :club_member_add
   post 'clubs/promuser' => 'clubs#add_member', as: :club_user_prom
   post 'clubs/prompres' => 'clubs#add_member', as: :club_user_pres

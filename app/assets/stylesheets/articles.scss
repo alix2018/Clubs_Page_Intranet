@@ -40,6 +40,11 @@ p{
 	margin-top:20px;
 }
 
+.date-right{
+	float:right;
+	padding-right:15px;
+}
+
 /*
  *
  * Article
@@ -108,6 +113,8 @@ img.img-responsive.img-circle.img-article{
 	margin-top:10px;
 }
 
+
+
 .row.modifier{
 	margin-top:5%;
 	float:right;
@@ -131,23 +138,20 @@ img.img-responsive.img-circle.img-article{
 	padding:0.75%;
 }
 
+
 .publier-article{
 	padding-left:0px;
 	font-style:italic;
 	font-size:15px;
 }
 
-.col-md-4.publier-article{
-	padding-left:0px;
-	font-style:italic;
-	font-size:15px;
-}
 
 .modifier-article{
 	font-style:italic;
 	font-size:15px;
-	text-align:right;
+	float:right;
 }
+
 
 .content-article{
 	text-align:justify;

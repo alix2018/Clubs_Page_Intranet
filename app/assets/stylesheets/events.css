@@ -6,8 +6,26 @@
  */
 
 .show-event-date{
-	text-align:justify;
+	text-align:center;
 	margin-bottom:30px;
+}
+
+.date-event-text{
+	font-size: 20px;
+
+}
+
+.date-event-data{
+	color: rgba(201, 0, 22,0.9);
+	font-weight: bold;
+}
+
+.event-place{
+	font-size: 14px;
+}
+
+.tabulation{
+	margin-left: 30px;
 }
 
 /*

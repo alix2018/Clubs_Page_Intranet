@@ -2,40 +2,51 @@
   .col-md-10.col-md-offset-1
     .panel.panel-primary
       .panel-heading
+        %h3.panel-title Evénement
       .panel-body{:class => "article"}
         .title-article
           =@event.title
         .panel.panel-default{:class => "panel-date"} 
-          .publier-article
-            - if @event.updated_at == @event.created_at
+          - if @event.updated_at == @event.created_at
+            .publier-article
               Publié le 
               =@event.created_at.strftime("%d %b. %Y")
               à
               =@event.created_at.strftime("%H:%M")
-            - elsif @event.updated_at != @event.created_at
-              .col-md-4{:class => "publier-article"}
-                Publié le 
-                =@event.created_at.strftime("%d %b. %Y")
-                à
-                =@event.created_at.strftime("%H:%M")
-              .col-md-offset-5{:class => "modifier-article"}
+          - elsif @event.updated_at != @event.created_at
+            .publier-article
+              Publié le 
+              =@event.created_at.strftime("%d %b. %Y")
+              à
+              =@event.created_at.strftime("%H:%M")
+              %span.modifier-article
                 Modifié le 
                 =@event.updated_at.strftime("%d %b. %Y")
                 à
                 =@event.updated_at.strftime("%H:%M")
-        .lieu{:class => "show-event-date"} 
-          Du 
-          =@event.date_start.strftime("%d %b")
-          à 
-          =@event.date_start.strftime("%H:%M") 
-          %br
-          Au
-          =@event.date_end.strftime("%d %b")
-          à 
-          =@event.date_end.strftime("%H:%M")
-          %br
-          À :
-          =@event.location
+        .show-event-date
+          %span.date-event-text
+            Du 
+          %span.date-event-data
+            =@event.date_start.strftime("%d %b")
+          %span.date-event-text  
+            à 
+          %span.date-event-data
+            =@event.date_start.strftime("%H:%M")
+          %span.date-event-text.tabulation             
+            Au
+          %span.date-event-data  
+            =@event.date_end.strftime("%d %b")
+          %span.date-event-text  
+            à 
+          %span.date-event-data  
+            =@event.date_end.strftime("%H:%M")
+            %br
+            %br
+          .date-event-text  
+            À :
+            %span.event-place
+              =@event.location
         .content-article
           =@event.description
         .separator-bar

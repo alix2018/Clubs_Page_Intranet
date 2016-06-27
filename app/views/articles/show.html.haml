@@ -2,23 +2,24 @@
   .col-md-10.col-md-offset-1
     .panel.panel-primary
       .panel-heading
+        %h3.panel-title Article
       .panel-body{:class => "article"}
         .title-article
           =@article.title
         .panel.panel-default{:class => "panel-date"} 
-          .publier-article
-            - if @article.updated_at == @article.created_at
+          - if @article.updated_at == @article.created_at
+            .publier-article
               Publié le 
               =@article.created_at.strftime("%d %b. %Y")
               à
               =@article.created_at.strftime("%H:%M")
-            - elsif @article.updated_at != @article.created_at
-              .col-md-4{:class => "publier-article"}
-                Publié le 
-                =@article.created_at.strftime("%d %b. %Y")
-                à
-                =@article.created_at.strftime("%H:%M")
-              .col-md-offset-5{:class => "modifier-article"}
+          - elsif @article.updated_at != @article.created_at
+            .publier-article
+              Publié le 
+              =@article.created_at.strftime("%d %b. %Y")
+              à
+              =@article.created_at.strftime("%H:%M")
+              %span.modifier-article
                 Modifié le 
                 =@article.updated_at.strftime("%d %b. %Y")
                 à

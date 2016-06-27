@@ -36,10 +36,9 @@
                                   = link_to event, :class=>"btn btn-md btn-default" do
                                     Lire la suite
                               .row
-                                .col-md-8.col-sm-8
-                                  Il y a 
-                                  =time_ago_in_words(event.created_at, language:"fr")
-                                .col-md-4.col-sm-4.text-right
+                                Il y a 
+                                =time_ago_in_words(event.created_at, language:"fr")
+                                %span.date-right
                                   - if event.updated_at != event.created_at
                                     Modifié le 
                                     =event.updated_at.strftime("%d %b. %Y")
